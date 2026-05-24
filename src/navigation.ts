@@ -1,4 +1,4 @@
-import { getPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -43,7 +43,7 @@ export const footerData = {
       title: 'Qué hacemos',
       links: [
         { text: 'Webs a medida', href: getPermalink('/services#web') },
-        { text: 'Apps Android', href: getPermalink('/services#android') },
+        { text: 'Apps móviles', href: getPermalink('/services#movil') },
         { text: 'Automatización', href: getPermalink('/services#automation') },
         { text: 'SEO local', href: getPermalink('/services#seo') },
       ],
@@ -64,7 +64,6 @@ export const footerData = {
   socialLinks: [
     { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/MiguelMialdeaDev' },
     { ariaLabel: 'Email', icon: 'tabler:mail', href: 'mailto:miguelmialdeamonzo@gmail.com' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
     <span class="font-bold">Codestack</span> · Hecho con Astro + Tailwind · © ${new Date().getFullYear()}
