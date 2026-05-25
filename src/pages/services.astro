@@ -1,224 +1,263 @@
 ---
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Note from '~/components/widgets/Note.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
 const metadata = {
-  title: 'Services',
+  title: 'Servicios',
+  description:
+    'Webs a medida, apps móviles nativas, automatización de procesos y SEO técnico. Desarrollo full-stack por un developer real, sin intermediarios.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero
-    tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
-    }}
+  <!-- Hero -->
+  <HeroText
+    tagline="Servicios"
+    title="Todo el stack digital de tu negocio, hecho a medida"
+    subtitle="No subcontrato. No uso plantillas no-code. No firmo contratos de permanencia. Lo que entrego lo construyo yo, con tecnologías modernas, y queda pensado para crecer contigo."
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
-    columns={3}
-    items={[
-      {
-        title: 'Educational',
-        description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Interior Design',
-        description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
-      },
-      {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
-      },
-      {
-        title: 'E-commerce',
-        description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
-      },
-      {
-        title: 'Blog',
-        description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
-      },
-      {
-        title: 'Business',
-        description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
-      },
-      {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
-      },
-    ]}
+  <!-- Banda info: anti-claims -->
+  <Note
+    title="Lo que NO hago"
+    description="No webs hechas con Wix/Squarespace · No SEO black hat · No contratos eternos · No subcontratación a terceros · No promesas de '1ª posición en Google en 7 días'. Si encajas en una agencia clásica de marketing, esto no es para ti."
   />
 
-  <!-- Content Widget **************** -->
-
+  <!-- ====================================== -->
+  <!-- 1. WEBS A MEDIDA -->
+  <!-- ====================================== -->
   <Content
+    id="web"
     isReversed
+    tagline="Webs a medida"
+    title="Webs corporativas, landing pages y tiendas online"
     items={[
       {
-        title: 'High-Quality Designs',
+        title: 'Webs corporativas',
         description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
+          'Para empresas que quieren una presencia profesional, rápida y mantenible. Múltiples páginas, blog opcional, formulario de contacto, integraciones básicas.',
       },
       {
-        title: 'Customization Tools',
+        title: 'Landing pages de conversión',
         description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
+          'Una sola página enfocada a un único objetivo: captar leads, vender un producto, recoger inscripciones. Optimizada para móvil y para tráfico de ads.',
       },
       {
-        title: 'Pre-Designed Elements',
+        title: 'Tiendas online (ecommerce)',
         description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
+          'Catálogo, carrito, checkout con Stripe, gestión de pedidos, emails transaccionales. Suscripciones recurrentes si encaja con tu producto.',
       },
       {
-        title: 'Preview and Mockup Views',
+        title: 'Stack: Astro o Next.js · Tailwind · Supabase · Stripe · Cloudflare',
         description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
+          'Tecnologías modernas pensadas para velocidad, SEO y costes de hosting bajos. Sin WordPress, sin plugins frágiles, sin sorpresas anuales en facturas.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
+      src: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?fit=crop&w=900&h=600',
+      alt: 'Diseño web a medida',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Webs que rinden, no solo "que se ven bien"</h3>
+      Una web bonita que tarda 8 segundos en cargar pierde el 70% de los visitantes
+      antes de que vean nada. Construyo webs rápidas (Core Web Vitals 95+), con SEO técnico
+      desde el día 1, y diseñadas para convertir el tráfico que ya tienes.
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
-
+  <!-- ====================================== -->
+  <!-- 2. APPS MÓVILES -->
+  <!-- ====================================== -->
   <Content
-    isAfterContent
+    id="movil"
+    tagline="Apps móviles"
+    title="Apps móviles nativas con arquitectura limpia"
     items={[
       {
-        title: 'Time Savings',
+        title: 'Apps de productividad',
         description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
-        icon: 'tabler:clock',
+          'Herramientas que el usuario abre cada semana: gestores, trackers, listas, recordatorios. UX simple, funcionamiento offline, monetización opcional vía suscripción.',
       },
       {
-        title: 'Professional Appearance',
+        title: 'Apps corporativas internas',
         description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
-        icon: 'tabler:school',
+          'Para tu equipo de campo, comerciales o almacén. Sincronización con tu backend, login, permisos por rol. Distribución privada (no Play Store pública).',
       },
       {
-        title: 'Cost-Efficiency',
+        title: 'Acompañantes de tu negocio físico',
         description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
-        icon: 'tabler:coin',
+          'App para clientes fidelizados: cartas digitales, reservas, pedidos, programas de puntos. Integrada con tu web o sistema POS si lo tienes.',
       },
       {
-        title: 'Instant Download',
+        title: 'Stack: Kotlin · Jetpack Compose · Clean Architecture · Room · Google Play Billing',
         description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
+          'Apps nativas (no híbridas), multi-módulo, testeable, con publicación en Play Store incluida. Material 3, accesibilidad TalkBack, soporte multi-idioma.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
+      src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?fit=crop&w=900&h=600',
+      alt: 'App móvil nativa',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">+5 años desarrollando para banca, retail y movilidad</h3>
+      Sé exactamente qué es una app preparada para producción y qué es un prototipo.
+      Si tu app va a tener usuarios reales, necesita arquitectura, tests y proceso
+      de release. Si no, te ahorras dinero haciéndola como prototipo y la rehacemos
+      cuando crezca.
     </Fragment>
   </Content>
 
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="Words from real customers"
-    testimonials={[
+  <!-- ====================================== -->
+  <!-- 3. AUTOMATIZACIÓN -->
+  <!-- ====================================== -->
+  <Content
+    id="automation"
+    isReversed
+    tagline="Automatización"
+    title="Procesos que se ejecutan solos, 24/7"
+    items={[
       {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
-        },
+        title: 'Bots de Telegram',
+        description:
+          'Alertas automáticas a tu móvil cuando pasa algo importante: nuevo lead, pedido grande, métrica fuera de rango, mención en redes sociales.',
       },
       {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
+        title: 'Scrapers y monitorización',
+        description:
+          'Vigilar precios de competencia, disponibilidad de stock en proveedores, ofertas que aparecen en marketplaces. Aviso automático cuando cumpla tus criterios.',
       },
       {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
-        image: {
-          src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
-        },
+        title: 'Integraciones entre tus herramientas',
+        description:
+          'Conectar lo que usas (Stripe, Notion, Google Sheets, Airtable, tu web, tu CRM) para que los datos fluyan sin copiar-pegar a mano.',
+      },
+      {
+        title: 'Stack: Python · GitHub Actions · Cloudflare Workers · APIs REST · Telegram Bot API',
+        description:
+          'Infraestructura barata (GitHub Actions tier gratis cubre la mayoría de casos) o serverless. Sin servidores propios que mantener.',
       },
     ]}
-    callToAction={{
-      target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/arthelokyo/astrowind',
-      icon: 'tabler:chevron-right',
+    image={{
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=900&h=600',
+      alt: 'Automatización de procesos',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Si lo haces más de 2 veces por semana, debería automatizarse</h3>
+      Una hora a la semana revisando manualmente algo = 50 horas al año. Una
+      automatización de 4 horas se amortiza el primer mes y trabaja para ti
+      gratis el resto del año.
+    </Fragment>
+  </Content>
+
+  <!-- ====================================== -->
+  <!-- 4. SEO + MANTENIMIENTO -->
+  <!-- ====================================== -->
+  <Content
+    id="seo"
+    tagline="SEO y mantenimiento"
+    title="Que tu web aparezca cuando te buscan y no se caiga nunca"
+    items={[
+      {
+        title: 'SEO técnico',
+        description:
+          'Auditoría Core Web Vitals, schema.org, sitemap, robots, redirecciones, canonicals. Lo que Google necesita para entender tu web y rankearla.',
+      },
+      {
+        title: 'SEO local (Valencia + España)',
+        description:
+          'Google Business Profile, NAP consistency, citaciones locales, contenido orientado a búsquedas geo-localizadas ("[servicio] en [ciudad]").',
+      },
+      {
+        title: 'Mantenimiento técnico',
+        description:
+          'Hosting, copias de seguridad automáticas, actualizaciones de seguridad, monitorización 24/7, pequeños cambios mensuales. Sin contratos eternos.',
+      },
+      {
+        title: 'Optimización continua',
+        description:
+          'Una vez la web está viva, mejoramos sobre datos reales: qué páginas convierten, qué keywords ranquean, qué partes pierden visitantes. Iteración mensual.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?fit=crop&w=900&h=600',
+      alt: 'SEO y analítica',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">SEO honesto: meses, no semanas</h3>
+      El SEO real tarda 3-6 meses en mover el ranking. Cualquiera que te prometa
+      "primera posición en 7 días" o usa black hat (que Google te penalice tarde
+      o temprano) o te miente directamente. Aquí trabajo con plazos honestos
+      y métricas verificables.
+    </Fragment>
+  </Content>
+
+  <!-- ====================================== -->
+  <!-- Cómo trabajamos -->
+  <!-- ====================================== -->
+  <Steps
+    title="Cómo trabajamos juntos"
+    items={[
+      {
+        title: '1. Llamada inicial gratuita (30 min)',
+        description: 'Te escucho, entiendo el problema real, te digo si encajamos. Sin compromiso, sin pitch agresivo.',
+        icon: 'tabler:phone',
+      },
+      {
+        title: '2. Propuesta por escrito en 48h',
+        description: 'Alcance, plazo y precio cerrado. Sin "depende", sin sorpresas a mitad de proyecto.',
+        icon: 'tabler:file-text',
+      },
+      {
+        title: '3. Sprints semanales con avance real',
+        description: 'Cada lunes ves progreso visible, no promesas. Iteramos rápido con tu feedback.',
+        icon: 'tabler:code',
+      },
+      {
+        title: '4. Lanzamiento + 30 días de garantía',
+        description: 'Despliegue, formación y un mes de soporte incluido. Después tú decides si seguimos con mantenimiento.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?fit=crop&w=900&h=600',
+      alt: 'Proceso de trabajo',
     }}
   />
 
-  <!-- CallToAction Widget *********** -->
-
+  <!-- ====================================== -->
+  <!-- CTA final -->
+  <!-- ====================================== -->
   <CallToAction
     actions={[
       {
         variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
+        text: 'Hablar por WhatsApp',
+        href: whatsappLink('Hola Codestack, vengo de la página de servicios y quiero hablar de un proyecto.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'Ver casos',
+        href: '/casos',
       },
     ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
-  />
+  >
+    <Fragment slot="title">¿Cuál de los 4 servicios te encaja?</Fragment>
+
+    <Fragment slot="subtitle">
+      Cuéntamelo en 30 minutos sin compromiso. Si encajamos, en 48h tienes
+      propuesta por escrito con alcance y precio cerrado.
+    </Fragment>
+  </CallToAction>
 </Layout>
