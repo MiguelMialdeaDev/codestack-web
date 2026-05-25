@@ -1,0 +1,161 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'Compose Forms — Librería open source para Android',
+  description:
+    'Caso de estudio: librería open source para formularios reactivos en Jetpack Compose con validación type-safe vía KSP, publicada en Maven Central.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <HeroText
+    tagline="Caso · Open Source · Librería técnica"
+    title="Compose Forms"
+    subtitle="Librería open source para formularios reactivos en Jetpack Compose con validación type-safe generada por KSP. Pensada para developers profesionales, publicada en Maven Central."
+  />
+
+  <!-- Contexto + Reto -->
+  <Content
+    isReversed
+    tagline="Contexto"
+    title="Un hueco real en el ecosistema Android"
+    items={[
+      {
+        title: 'Estado del arte 2026',
+        description:
+          'Form Conductor (3+ años sin release), rootstrap/FlowForms (sin mantenimiento), resto runtime DSL o tutoriales. Nadie combinaba KSP + multi-step + async validators + Compose-first.',
+      },
+      {
+        title: 'TextFieldState no compite',
+        description:
+          'Compose 1.7+ introdujo TextFieldState, pero no resuelve la parte schema type-safe ni async validation ni multi-step. Hueco confirmado tras auditoría.',
+      },
+      {
+        title: 'Por qué construirla',
+        description:
+          'Demostrar capacidad técnica más allá de apps comerciales: KSP, code generation, API design, publishing pipeline a Maven Central. Pieza de portfolio que valida senioridad.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?fit=crop&w=900&h=600',
+      alt: 'Código Kotlin',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">El reto</h3>
+      Construir una librería técnica que cubra un hueco real, con API limpia,
+      validada con tests, y publicada con el mismo rigor que las librerías
+      oficiales de Google.
+    </Fragment>
+  </Content>
+
+  <!-- Solución / Arquitectura -->
+  <Content
+    tagline="Arquitectura"
+    title="7 módulos con split agresivo para tree-shaking"
+    items={[
+      {
+        title: 'annotations',
+        description:
+          '@FormSpec + @Field source-retention. Sin runtime overhead. Cero dependencias en código cliente.',
+      },
+      {
+        title: 'runtime + compose',
+        description:
+          'FieldState<T> con debounce 400ms, cancelación, short-circuit en validación síncrona, tracking de touched. collectValueAsState() para Compose.',
+      },
+      {
+        title: 'compiler (KSP)',
+        description:
+          'SymbolProcessor que genera <Name>State + DSL builder + remember<Name>State() en tiempo de compilación. Sin reflexión, sin sorpresas en runtime.',
+      },
+      {
+        title: 'validators + async',
+        description:
+          'BuiltinValidators opcionales (required, email, matches) + AsyncValidators.remote para validación contra backend con cancelación correcta.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?fit=crop&w=900&h=600',
+      alt: 'Arquitectura de software',
+    }}
+  />
+
+  <!-- Stack técnico -->
+  <Content
+    isReversed
+    tagline="Stack técnico"
+    title="Kotlin 2.1 + KSP2 + Compose + Maven Central"
+    items={[
+      {
+        title: 'Build moderno',
+        description:
+          'AGP 8.7+, Kotlin 2.1 con K2 + KSP2, JVM17, minSdk24, targetSdk35. Convention plugins propios (Android lib, JVM lib, Compose lib).',
+      },
+      {
+        title: 'Testing',
+        description:
+          'JUnit + Turbine + Kotest. Casos críticos cubiertos: untouched, sync flow, short-circuit, async Pending→Result, async skipped cuando sync falla.',
+      },
+      {
+        title: 'CI/CD',
+        description:
+          'GitHub Actions con matrix Compose 1.7/1.8/1.9. ktfmt pre-commit. CHANGELOG manual estilo Keep a Changelog. Conventional Commits, semver estricto.',
+      },
+      {
+        title: 'Publishing',
+        description:
+          'vanniktech publish plugin + signing con GPG Ed25519. Maven Central directo desde v0.1. Coordinate io.github.miguelmialdeadev:formspec-*.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fit=crop&w=900&h=600',
+      alt: 'Build y testing',
+    }}
+  />
+
+  <!-- Stats -->
+  <Stats
+    title="Lo que se entregó"
+    subtitle="Librería técnica con el mismo nivel que las oficiales de Google."
+    stats={[
+      { title: 'Módulos publicados', amount: '7' },
+      { title: 'Casos críticos en tests', amount: '5' },
+      { title: 'Versiones de Compose soportadas', amount: '3' },
+      { title: 'License', amount: 'Apache 2.0' },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Hablemos de tu proyecto',
+        href: whatsappLink('Hola Codestack, he visto Compose Forms y quiero hablar de un proyecto técnico.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'Ver más casos',
+        href: '/casos',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Necesitas senioridad técnica de verdad?</Fragment>
+
+    <Fragment slot="subtitle">
+      Para proyectos donde la calidad técnica importa: arquitectura limpia,
+      tests, performance, librerías propias. Cuéntame qué tienes en mente.
+    </Fragment>
+  </CallToAction>
+</Layout>

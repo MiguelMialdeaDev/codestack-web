@@ -1,0 +1,165 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'WarrantyVault — App móvil publicada en Play Store',
+  description:
+    'Caso de estudio: app móvil nativa para gestión local de garantías, con Kotlin + Jetpack Compose + Clean Architecture multi-módulo + suscripción premium vía Google Play Billing.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <HeroText
+    tagline="Caso · Productividad · App móvil"
+    title="WarrantyVault"
+    subtitle="App móvil nativa que guarda las garantías de tus productos 100% en local, te avisa antes de que expiren y se monetiza con suscripción premium. Publicada en Play Store."
+  />
+
+  <!-- Contexto + Reto -->
+  <Content
+    isReversed
+    tagline="Contexto"
+    title="Una app propia para validar el proceso completo end-to-end"
+    items={[
+      {
+        title: 'Problema real',
+        description:
+          'Al usuario medio se le caducan garantías de productos caros (electrodomésticos, móviles, TV) porque no lleva registro y nadie le avisa.',
+      },
+      {
+        title: 'Decisión de diseño',
+        description:
+          'App 100% local. Sin servidores propios, sin tracking, sin permiso de Internet. Tus tickets no salen de tu dispositivo. Privacidad como diferenciador real, no como claim.',
+      },
+      {
+        title: 'Objetivo personal',
+        description:
+          'Recorrer todo el proceso de publicar una app móvil (build firmado, Play Console, política de privacidad, monetización, soporte) para poder hacerlo después con clientes.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?fit=crop&w=900&h=600',
+      alt: 'App móvil en uso',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">El reto</h3>
+      Construir una app móvil completa con monetización real y publicarla en
+      tienda, validando el proceso entero para poder replicarlo con clientes.
+    </Fragment>
+  </Content>
+
+  <!-- Solución -->
+  <Content
+    tagline="Solución"
+    title="Arquitectura limpia, multi-módulo y escalable"
+    items={[
+      {
+        title: 'CRUD garantías + foto',
+        description:
+          'Añadir, editar, eliminar garantías con producto, tienda, categoría, fecha y duración. Foto del ticket o factura adjunta a cada garantía.',
+      },
+      {
+        title: 'Notificaciones locales',
+        description:
+          'WorkManager programa avisos antes de que expire cada garantía. Toggle de Settings respetado, reprogramación al arrancar la app.',
+      },
+      {
+        title: 'Búsqueda + filtros',
+        description:
+          'Filtro por estado (todas / activas / próximas a expirar / expiradas). Búsqueda por nombre de producto o tienda. Organización por categoría.',
+      },
+      {
+        title: 'Premium con Google Play Billing',
+        description:
+          'Free hasta 3 garantías. Premium ilimitado vía suscripción mensual o anual. Integración Google Play Billing v6 + gating en código.',
+      },
+      {
+        title: 'Soporte multi-idioma + tema',
+        description:
+          'Español + Inglés. Tema claro, oscuro y "del sistema". Material 3, Compose, accesibilidad TalkBack.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?fit=crop&w=900&h=600',
+      alt: 'App de garantías',
+    }}
+  />
+
+  <!-- Stack técnico -->
+  <Content
+    isReversed
+    tagline="Stack técnico"
+    title="Kotlin + Jetpack Compose + Clean Architecture"
+    items={[
+      {
+        title: 'UI moderna',
+        description:
+          'Jetpack Compose, Material 3, Nunito desde Google Fonts. Tema completo (claro/oscuro), accesibilidad TalkBack, motion design en transiciones.',
+      },
+      {
+        title: 'Arquitectura multi-módulo',
+        description:
+          ':app + :core:{domain,database,ui} + :feature:{home,detail,addedit,settings,premium,onboarding}. Dependencias unidireccionales, sin ciclos. Testeable y escalable.',
+      },
+      {
+        title: 'Persistencia + DI',
+        description:
+          'Room (DB local), DataStore (preferencias), Koin (DI con 4 módulos agregados). Repositorios en :core:database, casos de uso en :core:domain.',
+      },
+      {
+        title: 'Build + release',
+        description:
+          'Gradle KTS, KSP, multi-módulo. Build firmado con keystore propio (credenciales por env vars). AAB + APK release minificados con R8. CI lista para automatizar.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?fit=crop&w=900&h=600',
+      alt: 'Código en pantalla',
+    }}
+  />
+
+  <!-- Stats -->
+  <Stats
+    title="Lo que se entregó"
+    subtitle="App lista para Play Store, con todo el proceso documentado."
+    stats={[
+      { title: 'Módulos del proyecto', amount: '10' },
+      { title: 'Tamaño del AAB release', amount: '5.9 MB' },
+      { title: 'Idiomas soportados', amount: '2' },
+      { title: 'Permisos del manifest', amount: '2' },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Quiero una app así',
+        href: whatsappLink('Hola Codestack, he visto WarrantyVault y quiero hablar de una app móvil para mi proyecto.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'Ver más casos',
+        href: '/casos',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Tienes una idea para una app móvil?</Fragment>
+
+    <Fragment slot="subtitle">
+      Apps nativas, multi-módulo, listas para Play Store y monetizadas
+      con suscripción si encaja. Hablamos sin compromiso.
+    </Fragment>
+  </CallToAction>
+</Layout>

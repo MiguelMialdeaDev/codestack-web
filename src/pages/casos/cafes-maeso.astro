@@ -1,0 +1,160 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'Cafés Maeso — Tienda online de café de especialidad',
+  description:
+    'Caso de estudio: ecommerce completo con Next.js 16, Supabase, Stripe y Resend para tueste familiar de café de especialidad con 20 años de historia en Valencia.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <HeroText
+    tagline="Caso · Hostelería · Ecommerce"
+    title="Cafés Maeso"
+    subtitle="Tienda online completa para un tueste familiar de café de especialidad con 20 años proveyendo a bares y restaurantes de Valencia. Live en cafesmaeso.es."
+  />
+
+  <!-- Contexto + Reto -->
+  <Content
+    isReversed
+    tagline="Contexto"
+    title="Un tueste familiar que necesitaba dar el salto al online"
+    items={[
+      {
+        title: 'Negocio B2B con historia',
+        description:
+          '20 años tostando café para más de 40 bares y restaurantes en Valencia. Marca conocida en hostelería local, cero presencia digital al consumidor final.',
+      },
+      {
+        title: 'Oportunidad B2C sin diluir B2B',
+        description:
+          'El cliente quería abrirse al consumidor doméstico (catálogo online, suscripciones recurrentes) sin perder la identidad artesanal ni canibalizar el canal mayorista.',
+      },
+      {
+        title: 'Restricción técnica',
+        description:
+          'Sin equipo IT interno. Necesitaba una solución que pudieran mantener autónomos al 90% y consultarme solo para cambios mayores.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1442550528053-c431ecb55509?fit=crop&w=900&h=600',
+      alt: 'Tueste de café',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">El reto</h3>
+      Convertir 20 años de credibilidad B2B en una tienda online que vendiera al consumidor
+      final sin perder el tono artesanal ni romper relaciones con los bares clientes.
+    </Fragment>
+  </Content>
+
+  <!-- Solución -->
+  <Content
+    tagline="Solución"
+    title="Ecommerce completo con narrativa de marca consistente"
+    items={[
+      {
+        title: 'Catálogo + checkout',
+        description:
+          '10 cafés por origen + 3 marca propia. 90 variantes (formato × peso). Carrito con persistencia, checkout Stripe, suscripciones recurrentes mensuales.',
+      },
+      {
+        title: 'Página de cada café',
+        description:
+          'SSG con generateStaticParams. 10 páginas estáticas con galería, ficha técnica, perfil sensorial, dato curioso. Selector formato/peso siempre disponible.',
+      },
+      {
+        title: 'Panel admin + B2B',
+        description:
+          'Gestión de pedidos, productos y suscripciones desde admin propio. Sección /profesionales para los bares con condiciones de mayorista diferenciadas.',
+      },
+      {
+        title: 'Narrativa "Lo hicimos al revés"',
+        description:
+          'Posicionamiento: empezamos con bares profesionales y ahora abrimos al cliente final. Frase: "El café que llevan 20 años pidiéndonos los chefs. Ahora también, tú."',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?fit=crop&w=900&h=600',
+      alt: 'Café de especialidad',
+    }}
+  />
+
+  <!-- Stack técnico -->
+  <Content
+    isReversed
+    tagline="Stack técnico"
+    title="Next.js 16 + Supabase + Stripe + Resend"
+    items={[
+      {
+        title: 'Frontend',
+        description:
+          'Next.js 16 (App Router, RSC), TypeScript, Tailwind CSS. SSG para páginas de producto, SSR para checkout y panel admin. Core Web Vitals 95+/100.',
+      },
+      {
+        title: 'Backend + DB',
+        description:
+          'Supabase (Postgres + Auth + Storage + RLS policies). Más de 30 migraciones SQL versionadas. AuthProvider centralizado, sin flicker entre rutas.',
+      },
+      {
+        title: 'Pagos + email',
+        description:
+          'Stripe Checkout hosted + webhooks server-side para validar pagos. Resend para emails transaccionales (confirmación, en preparación, envío, post-entrega).',
+      },
+      {
+        title: 'Hosting + monitorización',
+        description:
+          'Despliegue en Vercel. Sentry para errores en producción. Auditoría seguridad OWASP Top 10 + RLS policies + rate limiting.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?fit=crop&w=900&h=600',
+      alt: 'Stack técnico',
+    }}
+  />
+
+  <!-- Resultados -->
+  <Stats
+    title="Lo que se entregó"
+    subtitle="Tienda completa, en producción, lista para vender desde el día 1."
+    stats={[
+      { title: 'SKUs en catálogo', amount: '90' },
+      { title: 'Páginas estáticas (SSG)', amount: '10+' },
+      { title: 'Migraciones SQL versionadas', amount: '30+' },
+      { title: 'Performance score', amount: '95+' },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Quiero algo parecido',
+        href: whatsappLink('Hola Codestack, he visto el caso de Cafés Maeso y quiero hablar de un ecommerce para mi negocio.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'Ver más casos',
+        href: '/casos',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Tienes un negocio que necesita su tienda online?</Fragment>
+
+    <Fragment slot="subtitle">
+      Hostelería, comercio local, productores artesanos. Hablamos 30 minutos
+      sin compromiso y te digo si tu caso encaja con lo que hago.
+    </Fragment>
+  </CallToAction>
+</Layout>

@@ -1,0 +1,88 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'Casos de estudio',
+  description:
+    'Proyectos reales construidos por Codestack: tienda online de café de especialidad, app Android publicada en Play Store y librería open source para developers.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <HeroText
+    tagline="Casos de estudio"
+    title="Proyectos reales, en producción"
+    subtitle="Tres ejemplos del trabajo que hago: un ecommerce vivo, una app publicada en Play Store y una librería open source. Cada caso incluye el reto, el stack técnico y el resultado entregado."
+  />
+
+  <!-- Grid de casos -->
+  <Features3
+    columns={3}
+    items={[
+      {
+        title: 'Cafés Maeso',
+        subtitle: 'Hostelería · Ecommerce',
+        description:
+          'Tienda online para tueste familiar de café de especialidad con 20 años de historia B2B en Valencia. Stack: Next.js 16 + Supabase + Stripe + Resend. En producción en cafesmaeso.es.',
+        icon: 'tabler:coffee',
+        callToAction: {
+          text: 'Ver caso completo',
+          href: '/casos/cafes-maeso',
+        },
+      },
+      {
+        title: 'WarrantyVault',
+        subtitle: 'Productividad · App móvil',
+        description:
+          'App móvil para gestionar garantías de productos 100% en local. Suscripción premium vía Google Play Billing. Stack: Kotlin + Jetpack Compose + Clean Architecture multi-módulo + Room.',
+        icon: 'tabler:device-mobile',
+        callToAction: {
+          text: 'Ver caso completo',
+          href: '/casos/warrantyvault',
+        },
+      },
+      {
+        title: 'Compose Forms',
+        subtitle: 'OSS · Librería Android',
+        description:
+          'Librería open source para formularios reactivos en Jetpack Compose con validación type-safe vía KSP. Publicación en Maven Central. Stack: Kotlin + KSP + Compose + Coroutines.',
+        icon: 'tabler:code',
+        callToAction: {
+          text: 'Ver caso completo',
+          href: '/casos/compose-forms',
+        },
+      },
+    ]}
+  />
+
+  <!-- CTA final -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Hablar por WhatsApp',
+        href: whatsappLink('Hola Codestack, he visto vuestros casos y quiero hablar de un proyecto parecido.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'Prefiero email',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Tienes algo parecido en mente?</Fragment>
+
+    <Fragment slot="subtitle">
+      Cuéntamelo en 30 minutos. Si encaja, en 48h tienes propuesta por escrito.
+    </Fragment>
+  </CallToAction>
+</Layout>
