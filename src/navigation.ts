@@ -1,5 +1,12 @@
 import { getPermalink } from './utils/permalinks';
 
+// ⚠️ SUSTITUIR cuando WhatsApp Business esté listo (formato internacional sin + ni espacios)
+const WHATSAPP_NUMBER = '34600000000';
+const WHATSAPP_DEFAULT_MSG = 'Hola Codestack, me interesa hablar sobre un proyecto.';
+
+export const whatsappLink = (msg: string = WHATSAPP_DEFAULT_MSG): string =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
 export const headerData = {
   links: [
     {
@@ -21,8 +28,10 @@ export const headerData = {
   ],
   actions: [
     {
-      text: 'Pide presupuesto',
-      href: getPermalink('/contact'),
+      text: 'WhatsApp',
+      href: whatsappLink('Hola Codestack, vengo de tu web y quiero hablar de un proyecto.'),
+      target: '_blank',
+      icon: 'tabler:brand-whatsapp',
       variant: 'primary',
     },
   ],
@@ -62,6 +71,7 @@ export const footerData = {
     { text: 'Política de privacidad', href: getPermalink('/privacy') },
   ],
   socialLinks: [
+    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: whatsappLink() },
     { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/MiguelMialdeaDev' },
     { ariaLabel: 'Email', icon: 'tabler:mail', href: 'mailto:miguelmialdeamonzo@gmail.com' },
   ],

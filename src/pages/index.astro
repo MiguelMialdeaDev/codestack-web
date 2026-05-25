@@ -9,6 +9,8 @@ import Stats from '~/components/widgets/Stats.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
+import { whatsappLink } from '~/navigation';
+
 const metadata = {
   title: 'Codestack — Webs, apps y automatización para tu negocio',
   ignoreTitleTemplate: true,
@@ -21,9 +23,10 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Pide presupuesto',
-        href: '/contact',
-        icon: 'tabler:mail',
+        text: 'Hablar por WhatsApp',
+        href: whatsappLink('Hola Codestack, vengo de tu home y quiero hablar de un proyecto.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
       },
       { text: 'Ver casos', href: '/casos' },
     ]}
@@ -222,7 +225,13 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Pide presupuesto',
+        text: 'Hablar por WhatsApp',
+        href: whatsappLink('Hola Codestack, tengo una idea/problema en mente y quiero contarlo.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'Prefiero email',
         href: '/contact',
         icon: 'tabler:mail',
       },
@@ -233,8 +242,8 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Cuéntamelo en 30 minutos por videollamada. Si encajamos, en 48h
-      tienes propuesta por escrito. Si no, te diré con quién hablar.
+      Cuéntamelo por WhatsApp y montamos una llamada de 30 minutos.
+      Si encajamos, en 48h tienes propuesta por escrito. Sin compromiso.
     </Fragment>
   </CallToAction>
 </Layout>
