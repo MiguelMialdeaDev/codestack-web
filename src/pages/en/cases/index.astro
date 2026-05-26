@@ -1,0 +1,88 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'Case studies',
+  description:
+    'Real projects built by Codestack: specialty coffee online store, mobile app published on Play Store and open source library for developers.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <HeroText
+    tagline="Case studies"
+    title="Real projects, in production"
+    subtitle="Three examples of work I do: a live ecommerce, an app published on Play Store and an open source library. Each case includes the challenge, the tech stack and the delivered result."
+  />
+
+  <!-- Grid -->
+  <Features3
+    columns={3}
+    items={[
+      {
+        title: 'Cafés Maeso',
+        subtitle: 'Hospitality · Ecommerce',
+        description:
+          'Online store for family-owned specialty coffee roaster with 20 years of B2B history in Valencia. Stack: Next.js 16 + Supabase + Stripe + Resend. Live at cafesmaeso.es.',
+        icon: 'tabler:coffee',
+        callToAction: {
+          text: 'See full case',
+          href: '/en/cases/cafes-maeso',
+        },
+      },
+      {
+        title: 'WarrantyVault',
+        subtitle: 'Productivity · Mobile app',
+        description:
+          'Mobile app for managing product warranties 100% locally. Premium subscription via Google Play Billing. Stack: Kotlin + Jetpack Compose + Clean Architecture multi-module + Room.',
+        icon: 'tabler:device-mobile',
+        callToAction: {
+          text: 'See full case',
+          href: '/en/cases/warrantyvault',
+        },
+      },
+      {
+        title: 'Compose Forms',
+        subtitle: 'OSS · Android library',
+        description:
+          'Open source library for reactive forms in Jetpack Compose with type-safe validation via KSP. Published on Maven Central. Stack: Kotlin + KSP + Compose + Coroutines.',
+        icon: 'tabler:code',
+        callToAction: {
+          text: 'See full case',
+          href: '/en/cases/compose-forms',
+        },
+      },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk on WhatsApp',
+        href: whatsappLink('Hi Codestack, I have seen your cases and would like to talk about a similar project.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'I prefer email',
+        href: '/en/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">Have something similar in mind?</Fragment>
+
+    <Fragment slot="subtitle">
+      Tell me in 30 minutes. If it fits, within 48h you get a written proposal.
+    </Fragment>
+  </CallToAction>
+</Layout>

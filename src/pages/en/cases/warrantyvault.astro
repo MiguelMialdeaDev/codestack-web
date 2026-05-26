@@ -1,0 +1,159 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'WarrantyVault — Mobile app published on Play Store',
+  description:
+    'Case study: native mobile app for local warranty management, with Kotlin + Jetpack Compose + Clean Architecture multi-module + premium subscription via Google Play Billing.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Case · Productivity · Mobile app"
+    title="WarrantyVault"
+    subtitle="Native mobile app that stores your product warranties 100% locally, alerts you before they expire and monetizes with a premium subscription. Published on Play Store."
+  />
+
+  <Content
+    isReversed
+    tagline="Context"
+    title="An own app to validate the full end-to-end process"
+    items={[
+      {
+        title: 'Real problem',
+        description:
+          'The average user loses warranties on expensive products (appliances, phones, TVs) because they keep no record and nobody warns them.',
+      },
+      {
+        title: 'Design decision',
+        description:
+          '100% local app. No own servers, no tracking, no Internet permission. Your tickets never leave your device. Privacy as a real differentiator, not a marketing claim.',
+      },
+      {
+        title: 'Personal goal',
+        description:
+          'Walk through the full process of publishing a mobile app (signed build, Play Console, privacy policy, monetization, support) so I can repeat it with clients.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?fit=crop&w=900&h=600',
+      alt: 'Mobile app in use',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">The challenge</h3>
+      Build a complete mobile app with real monetization and publish it on the
+      store, validating the whole process to be able to repeat it with clients.
+    </Fragment>
+  </Content>
+
+  <Content
+    tagline="Solution"
+    title="Clean, multi-module, scalable architecture"
+    items={[
+      {
+        title: 'Warranty CRUD + photo',
+        description:
+          'Add, edit, delete warranties with product, store, category, date and duration. Photo of receipt or invoice attached to each warranty.',
+      },
+      {
+        title: 'Local notifications',
+        description:
+          'WorkManager schedules alerts before each warranty expires. Settings toggle respected, rescheduling on app start.',
+      },
+      {
+        title: 'Search + filters',
+        description:
+          'Filter by status (all / active / expiring soon / expired). Search by product or store name. Organization by category.',
+      },
+      {
+        title: 'Premium with Google Play Billing',
+        description:
+          'Free up to 3 warranties. Unlimited Premium via monthly or yearly subscription. Google Play Billing v6 integration + in-code gating.',
+      },
+      {
+        title: 'Multi-language + theme support',
+        description:
+          'Spanish + English. Light, dark and "system" themes. Material 3, Compose, TalkBack accessibility.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?fit=crop&w=900&h=600',
+      alt: 'Warranty app',
+    }}
+  />
+
+  <Content
+    isReversed
+    tagline="Tech stack"
+    title="Kotlin + Jetpack Compose + Clean Architecture"
+    items={[
+      {
+        title: 'Modern UI',
+        description:
+          'Jetpack Compose, Material 3, Nunito from Google Fonts. Complete theme (light/dark), TalkBack accessibility, motion design in transitions.',
+      },
+      {
+        title: 'Multi-module architecture',
+        description:
+          ':app + :core:{domain,database,ui} + :feature:{home,detail,addedit,settings,premium,onboarding}. Unidirectional dependencies, no cycles. Testable and scalable.',
+      },
+      {
+        title: 'Persistence + DI',
+        description:
+          'Room (local DB), DataStore (preferences), Koin (DI with 4 aggregated modules). Repositories in :core:database, use cases in :core:domain.',
+      },
+      {
+        title: 'Build + release',
+        description:
+          'Gradle KTS, KSP, multi-module. Signed build with own keystore (credentials via env vars). AAB + APK release minified with R8. CI ready to automate.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?fit=crop&w=900&h=600',
+      alt: 'Code on screen',
+    }}
+  />
+
+  <Stats
+    title="What was delivered"
+    subtitle="App ready for Play Store, with the full process documented."
+    stats={[
+      { title: 'Project modules', amount: '10' },
+      { title: 'Release AAB size', amount: '5.9 MB' },
+      { title: 'Supported languages', amount: '2' },
+      { title: 'Manifest permissions', amount: '2' },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'I want an app like this',
+        href: whatsappLink('Hi Codestack, I have seen WarrantyVault and would like to talk about a mobile app for my project.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'See more cases',
+        href: '/en/cases',
+      },
+    ]}
+  >
+    <Fragment slot="title">Have an idea for a mobile app?</Fragment>
+
+    <Fragment slot="subtitle">
+      Native apps, multi-module, ready for Play Store and monetized via
+      subscription if it fits. Let's talk, no commitment.
+    </Fragment>
+  </CallToAction>
+</Layout>

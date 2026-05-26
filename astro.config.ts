@@ -26,6 +26,14 @@ export default defineConfig({
   base: '/codestack-web',
   output: 'static',
 
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false, // ES en /, EN en /en/
+    },
+  },
+
   integrations: [
     sitemap(),
     mdx(),

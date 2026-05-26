@@ -1,0 +1,249 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'Codestack — Web, apps and automation for your business',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk on WhatsApp',
+        href: whatsappLink('Hi Codestack, I came from your home page and would like to talk about a project.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'See cases', href: '/en/cases' },
+    ]}
+  >
+    <Fragment slot="title">
+      The <span class="text-accent dark:text-white">full stack</span> of your business: web, app and automation
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Custom development built by a real developer, not a template.
+      Fast websites, native mobile apps and automated workflows for
+      businesses that want more clients with less effort.
+    </Fragment>
+  </Hero>
+
+  <!-- Services -->
+  <Features
+    id="services"
+    tagline="Services"
+    title="Everything your digital business needs, in one place"
+    subtitle="No outsourcing. I build, I deliver, I maintain. Result: direct communication, no middlemen, no surprises in quality."
+    items={[
+      {
+        title: 'Custom websites',
+        description:
+          'Corporate websites, landing pages and online stores with Astro or Next.js. Fast, SEO-ready and designed to turn visits into clients.',
+        icon: 'tabler:world-www',
+      },
+      {
+        title: 'Mobile apps',
+        description:
+          'Native mobile apps with clean architecture and modern patterns. 5+ years building for banking, retail and mobility sectors. Store publishing included.',
+        icon: 'tabler:device-mobile',
+      },
+      {
+        title: 'Automation',
+        description:
+          'Bots, scrapers, integrations and automated workflows that save you hours every week. Real cases: Telegram alerts, inventory management, notifications.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'SEO and maintenance',
+        description:
+          'Organic positioning, performance optimization and technical maintenance so your website grows without breaking. No long-term contracts.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+  />
+
+  <!-- Featured case 1: Cafés Maeso -->
+  <Content
+    isReversed
+    tagline="Success case"
+    title="Cafés Maeso: specialty coffee online store"
+    items={[
+      {
+        title: 'Tech stack',
+        description: 'Next.js 16 + Supabase + Stripe + Resend. 90-SKU catalogue, recurring subscriptions, admin panel.',
+      },
+      {
+        title: 'Challenge',
+        description: 'Family-owned coffee roaster with 20 years of B2B history needing to enter the consumer market without losing its artisan identity.',
+      },
+      {
+        title: 'Result',
+        description: 'Live store at cafesmaeso.es with complete catalogue, working checkout and consistent brand storytelling.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?fit=crop&w=900&h=600',
+      alt: 'Specialty coffee',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Cafés Maeso</h3>
+      A family coffee roaster in Valencia with 20 years supplying bars and restaurants
+      decided to make the jump to ecommerce. I built their online store from scratch:
+      architecture, design, payment integrations and positioning.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Featured case 2: WarrantyVault -->
+  <Content
+    tagline="Success case"
+    title="WarrantyVault: mobile app published on Play Store"
+    items={[
+      {
+        title: 'Tech stack',
+        description: 'Kotlin + Jetpack Compose + Clean Architecture multi-module. Room, DataStore, WorkManager, Google Play Billing v6.',
+      },
+      {
+        title: 'Challenge',
+        description: '100% local warranty manager that does not send data to servers. Privacy as a true differentiator in the productivity category.',
+      },
+      {
+        title: 'Result',
+        description: 'Published app with premium subscription, real privacy policy and scalable architecture ready to add features.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?fit=crop&w=900&h=600',
+      alt: 'Mobile app in use',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">WarrantyVault</h3>
+      Own app built end-to-end: idea, design, code, signed build, Google Play listing,
+      privacy policy, monetization. The complete process of taking an app to production,
+      repeatable for any client.
+    </Fragment>
+  </Content>
+
+  <!-- How we work -->
+  <Steps
+    title="How we work together"
+    items={[
+      {
+        title: '1. Free intro call',
+        description: 'I listen, understand the real problem and tell you if we fit. 30 minutes, no commitment.',
+        icon: 'tabler:phone',
+      },
+      {
+        title: '2. Clear written proposal',
+        description: 'Within 48h you get a proposal with scope, timeline and fixed price. No "it depends".',
+        icon: 'tabler:file-text',
+      },
+      {
+        title: '3. Weekly sprints',
+        description: 'Every week you see real progress, not promises. Fast iterations with your feedback.',
+        icon: 'tabler:code',
+      },
+      {
+        title: '4. Launch and follow-up',
+        description: 'Production deployment, training and 30 days of guarantee. Afterwards you decide if we continue.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?fit=crop&w=900&h=600',
+      alt: 'Work process',
+    }}
+  />
+
+  <!-- Stats -->
+  <Stats
+    title="Why Codestack"
+    subtitle="Numbers backing the work, not marketing promises."
+    stats={[
+      { title: 'Years of experience', amount: '+5' },
+      { title: 'Live projects', amount: '3' },
+      { title: 'Stacks mastered', amount: '5+' },
+      { title: 'Average reply time', amount: '<2h' },
+    ]}
+  />
+
+  <!-- FAQs -->
+  <FAQs
+    title="Frequently asked questions"
+    subtitle="The questions I get most before starting to work together."
+    columns={1}
+    items={[
+      {
+        title: 'How is the price calculated?',
+        description:
+          'Every project is custom, so the price depends on the scope — which pages, which integrations, which features. I tell you in the free 30-minute call. If we fit, within 48h you get a proposal with fixed price in writing, no "it depends" or surprises.',
+      },
+      {
+        title: 'How long does it take to launch?',
+        description:
+          'Landing page: 2-3 days. Corporate website: 1-2 weeks. Online store: 3-5 weeks. Mobile app: 6-12 weeks depending on complexity. I work in weekly sprints and you see real progress every Monday.',
+      },
+      {
+        title: 'Do you maintain the website afterwards?',
+        description:
+          'Yes, optional. Maintenance plan from €80/month includes hosting, backups, security updates, monitoring and small monthly changes. No long-term commitment.',
+      },
+      {
+        title: 'Do you work with clients outside Valencia?',
+        description:
+          'Yes. Although I am based in Valencia, I work remotely with clients across Spain and internationally. Meetings are done via video call and documentation is kept in writing for clarity.',
+      },
+      {
+        title: 'Why Codestack and not a big agency?',
+        description:
+          'Because you talk directly to the developer building your project. No salespeople, no project managers forwarding emails, no "let me check with the team". Direct communication, fast decisions, prices without the agency overhead.',
+      },
+    ]}
+  />
+
+  <!-- Final CTA -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk on WhatsApp',
+        href: whatsappLink('Hi Codestack, I have an idea/problem in mind and would like to discuss it.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'I prefer email',
+        href: '/en/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Have an idea or a problem in mind?
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Tell me on WhatsApp and we set up a 30-minute call.
+      If we fit, within 48h you get a written proposal. No commitment.
+    </Fragment>
+  </CallToAction>
+</Layout>

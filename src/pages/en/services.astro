@@ -1,0 +1,244 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'Services',
+  description:
+    'Custom websites, native mobile apps, process automation and technical SEO. Full-stack development by a real developer, no middlemen.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <HeroText
+    tagline="Services"
+    title="Your business's full digital stack, custom-built"
+    subtitle="No outsourcing. No no-code templates. No long-term contracts. What I deliver is built by me, with modern technologies, designed to grow with you."
+  />
+
+  <!-- 1. CUSTOM WEBSITES -->
+  <Content
+    id="web"
+    isReversed
+    tagline="Custom websites"
+    title="Corporate websites, landing pages and online stores"
+    items={[
+      {
+        title: 'Corporate websites',
+        description:
+          'For companies that want a professional, fast and maintainable presence. Multiple pages, optional blog, contact form, basic integrations.',
+      },
+      {
+        title: 'Conversion landing pages',
+        description:
+          'Single page focused on one goal: capturing leads, selling a product, collecting signups. Mobile-first, optimized for ad traffic.',
+      },
+      {
+        title: 'Online stores (ecommerce)',
+        description:
+          'Catalogue, cart, Stripe checkout, order management, transactional emails. Recurring subscriptions if your product fits.',
+      },
+      {
+        title: 'Stack: Astro or Next.js · Tailwind · Supabase · Stripe · Cloudflare',
+        description:
+          'Modern technologies built for speed, SEO and low hosting costs. No WordPress, no fragile plugins, no annual surprises on invoices.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?fit=crop&w=900&h=600',
+      alt: 'Custom web design',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Websites that perform, not just "look good"</h3>
+      A beautiful website that takes 8 seconds to load loses 70% of visitors before
+      they see anything. I build fast websites (Core Web Vitals 95+), with technical SEO
+      from day one, designed to convert the traffic you already have.
+    </Fragment>
+  </Content>
+
+  <!-- 2. MOBILE APPS -->
+  <Content
+    id="mobile"
+    tagline="Mobile apps"
+    title="Native mobile apps with clean architecture"
+    items={[
+      {
+        title: 'Productivity apps',
+        description:
+          'Tools your user opens every week: trackers, managers, lists, reminders. Simple UX, offline support, optional subscription monetization.',
+      },
+      {
+        title: 'Internal corporate apps',
+        description:
+          'For your field team, salespeople or warehouse staff. Backend sync, login, role-based permissions. Private distribution (not public Play Store).',
+      },
+      {
+        title: 'Companion apps for your physical business',
+        description:
+          'App for loyal customers: digital menus, reservations, orders, loyalty programs. Integrated with your website or POS if you have one.',
+      },
+      {
+        title: 'Stack: Kotlin · Jetpack Compose · Clean Architecture · Room · Google Play Billing',
+        description:
+          'Native apps (not hybrid), multi-module, testable, with Play Store publication included. Material 3, TalkBack accessibility, multi-language support.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?fit=crop&w=900&h=600',
+      alt: 'Native mobile app',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">5+ years building for banking, retail and mobility</h3>
+      I know exactly what a production-ready app looks like and what a prototype is.
+      If your app will have real users, it needs architecture, tests and a release
+      process. If not, save money building it as a prototype and we rebuild it when
+      it grows.
+    </Fragment>
+  </Content>
+
+  <!-- 3. AUTOMATION -->
+  <Content
+    id="automation"
+    isReversed
+    tagline="Automation"
+    title="Workflows that run themselves, 24/7"
+    items={[
+      {
+        title: 'Telegram bots',
+        description:
+          'Automatic alerts to your phone when something important happens: new lead, big order, metric out of range, social media mention.',
+      },
+      {
+        title: 'Scrapers and monitoring',
+        description:
+          'Watch competitor prices, supplier stock availability, marketplace offers. Automatic alerts when criteria match.',
+      },
+      {
+        title: 'Tool integrations',
+        description:
+          'Connect what you already use (Stripe, Notion, Google Sheets, Airtable, your website, your CRM) so data flows without manual copy-paste.',
+      },
+      {
+        title: 'Stack: Python · GitHub Actions · Cloudflare Workers · REST APIs · Telegram Bot API',
+        description:
+          'Cheap infrastructure (GitHub Actions free tier covers most cases) or serverless. No servers to maintain.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=900&h=600',
+      alt: 'Process automation',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">If you do it more than twice a week, it should be automated</h3>
+      One hour weekly reviewing something manually = 50 hours a year. A 4-hour
+      automation pays for itself the first month and works for you for free the
+      rest of the year.
+    </Fragment>
+  </Content>
+
+  <!-- 4. SEO + MAINTENANCE -->
+  <Content
+    id="seo"
+    tagline="SEO and maintenance"
+    title="Be found when they search, never go down"
+    items={[
+      {
+        title: 'Technical SEO',
+        description:
+          'Core Web Vitals audit, schema.org, sitemap, robots, redirects, canonicals. What Google needs to understand and rank your site.',
+      },
+      {
+        title: 'Local SEO (Valencia + Spain)',
+        description:
+          'Google Business Profile, NAP consistency, local citations, content targeted to geo-located searches ("[service] in [city]").',
+      },
+      {
+        title: 'Technical maintenance',
+        description:
+          'Hosting, automatic backups, security updates, 24/7 monitoring, small monthly changes. No long-term contracts.',
+      },
+      {
+        title: 'Continuous optimization',
+        description:
+          'Once your site is live, we improve based on real data: which pages convert, which keywords rank, where visitors drop. Monthly iteration.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?fit=crop&w=900&h=600',
+      alt: 'SEO and analytics',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Honest SEO: months, not weeks</h3>
+      Real SEO takes 3-6 months to move rankings. Anyone promising "first
+      position in 7 days" either uses black hat (Google will penalize you sooner
+      or later) or is straight-up lying. Here we work with honest timelines and
+      verifiable metrics.
+    </Fragment>
+  </Content>
+
+  <!-- How we work -->
+  <Steps
+    title="How we work together"
+    items={[
+      {
+        title: '1. Free intro call (30 min)',
+        description: 'I listen, understand the real problem, tell you if we fit. No commitment, no aggressive pitch.',
+        icon: 'tabler:phone',
+      },
+      {
+        title: '2. Written proposal within 48h',
+        description: 'Scope, timeline and fixed price. No "it depends", no surprises mid-project.',
+        icon: 'tabler:file-text',
+      },
+      {
+        title: '3. Weekly sprints with real progress',
+        description: 'Every Monday you see visible progress, not promises. Fast iteration with your feedback.',
+        icon: 'tabler:code',
+      },
+      {
+        title: '4. Launch + 30-day guarantee',
+        description: 'Deployment, training and a month of included support. Afterwards you decide if we continue with maintenance.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?fit=crop&w=900&h=600',
+      alt: 'Work process',
+    }}
+  />
+
+  <!-- Final CTA -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk on WhatsApp',
+        href: whatsappLink('Hi Codestack, I came from the services page and would like to talk about a project.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'See cases',
+        href: '/en/cases',
+      },
+    ]}
+  >
+    <Fragment slot="title">Which of the 4 services fits you?</Fragment>
+
+    <Fragment slot="subtitle">
+      Tell me in a 30-minute call, no commitment. If we fit, within 48h you get
+      a written proposal with scope and fixed price.
+    </Fragment>
+  </CallToAction>
+</Layout>

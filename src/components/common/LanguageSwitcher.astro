@@ -1,0 +1,36 @@
+---
+import { trimSlash } from '~/utils/permalinks';
+
+const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+const base = `/${trimSlash(import.meta.env.BASE_URL || '')}`;
+
+// Pathname relative to base (without the /codestack-web prefix)
+const relativePath = base && base !== '/' && currentPath.startsWith(base)
+  ? currentPath.slice(base.length) || '/'
+  : currentPath;
+
+const isEnglish = relativePath === '/en' || relativePath.startsWith('/en/');
+
+// Build the opposite-locale path (relative to base, no trailing slash)
+let otherLocalePath: string;
+if (isEnglish) {
+  // /en/services -> /services, /en -> /
+  otherLocalePath = relativePath.replace(/^\/en(\/|$)/, '/');
+  otherLocalePath = otherLocalePath.replace(/\/$/, '') || '/';
+} else {
+  // / -> /en, /services -> /en/services
+  otherLocalePath = relativePath === '/' ? '/en' : `/en${relativePath}`;
+}
+
+// Reattach base (avoid duplicated slashes)
+const baseClean = base && base !== '/' ? base : '';
+const otherLocaleHref = `${baseClean}${otherLocalePath}`.replace(/\/+/g, '/') || '/';
+---
+
+<a
+  href={otherLocaleHref}
+  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm font-semibold px-3 py-2 inline-flex items-center"
+  aria-label={isEnglish ? 'Ver en español' : 'View in English'}
+>
+  {isEnglish ? 'ES' : 'EN'}
+</a>
