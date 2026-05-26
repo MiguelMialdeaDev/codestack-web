@@ -1,7 +1,7 @@
 site:
   name: Codestack
-  site: 'https://codestack.com'
-  base: '/'
+  site: 'https://miguelmialdeadev.github.io'
+  base: '/codestack-web'
   trailingSlash: false
 
   googleSiteVerificationId: ''
