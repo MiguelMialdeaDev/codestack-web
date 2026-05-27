@@ -6,6 +6,7 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Stats from '~/components/widgets/Stats.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
@@ -143,6 +144,86 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
+
+  <!-- Pricing: ONE package + custom alternative -->
+  <Pricing
+    id="pricing"
+    title="Your café online, ready in 7 days"
+    subtitle="One closed package. No surprises. No 'it depends'."
+    tagline="Investment"
+    prices={[
+      {
+        title: 'Hospitality Starter',
+        subtitle: 'For independent cafés and restaurants',
+        price: '3,000',
+        period: '(+VAT) + €200/month from month 2',
+        items: [
+          { description: 'Professional own website (5-7 sections, mobile-first)' },
+          { description: 'Online reservation system, no commission' },
+          { description: 'Orders direct to your WhatsApp (no Glovo)' },
+          { description: 'Digital menu with QR for each table' },
+          { description: 'Google Business Profile optimized' },
+          { description: 'Hosting + domain + SSL the first 3 months' },
+          { description: 'Training 1h so you manage it yourself' },
+          { description: 'Launch in 7 days (or less)' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Talk on WhatsApp',
+          href: whatsappLink('Hi Codestack, I am interested in the Hospitality Starter package (€3,000). I have a [type of place] in [Valencia area].'),
+        },
+        hasRibbon: true,
+        ribbonTitle: '2 slots left',
+      },
+      {
+        title: 'Custom',
+        subtitle: 'If you need more: mobile app, POS integration, aggressive SEO or multiple locations',
+        price: '5,000+',
+        period: 'tailored to scope',
+        items: [
+          { description: 'Everything in Starter, plus:' },
+          { description: 'Own mobile app (orders + loyalty)' },
+          { description: 'Integration with your inventory/POS system' },
+          { description: 'Aggressive local SEO (Google Ads + content)' },
+          { description: 'Full professional photo session of your place' },
+          { description: 'Support up to 90 days included' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: "Let's talk on WhatsApp",
+          href: whatsappLink('Hi Codestack, I need something bigger than Starter — I have [explain case].'),
+        },
+      },
+    ]}
+  />
+
+  <!-- Guarantees -->
+  <Features
+    id="guarantees"
+    tagline="Three written guarantees"
+    title="If I do not deliver what I promised, you do not pay more"
+    subtitle="No fine print, no 'subject to terms'. Responsibility is mine until it works."
+    items={[
+      {
+        title: 'Result Guarantee',
+        description:
+          'If in the first 90 days you do NOT get at least 10 direct online reservations, I keep working at no extra cost until you do.',
+        icon: 'tabler:target-arrow',
+      },
+      {
+        title: 'Performance Guarantee',
+        description:
+          'Your website loads in less than 3 seconds on mobile (Core Web Vitals publicly verifiable). If not, I rebuild it for free until compliant.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Continuity Guarantee',
+        description:
+          'If you decide to leave maintenance at any time, I hand over EVERYTHING: code, accesses, backups. No penalty, no retention. Your website is yours.',
+        icon: 'tabler:lock-open',
+      },
+    ]}
+  />
 
   <!-- How we work -->
   <Steps

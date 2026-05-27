@@ -6,6 +6,7 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Stats from '~/components/widgets/Stats.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
@@ -144,6 +145,86 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
+
+  <!-- Pricing: UN paquete + alternativa custom -->
+  <Pricing
+    id="pricing"
+    title="Tu cafetería online, listo en 7 días"
+    subtitle="Un solo paquete cerrado. Sin sorpresas. Sin 'depende'."
+    tagline="Inversión"
+    prices={[
+      {
+        title: 'Hostelería Starter',
+        subtitle: 'Para cafeterías y restaurantes independientes',
+        price: '3.000',
+        period: '(IVA aparte) + 200€/mes desde mes 2',
+        items: [
+          { description: 'Web profesional propia (5-7 secciones, móvil-first)' },
+          { description: 'Sistema de reservas online sin comisión' },
+          { description: 'Pedidos directos a tu WhatsApp (sin Glovo)' },
+          { description: 'Carta digital con QR para cada mesa' },
+          { description: 'Google Business Profile optimizado' },
+          { description: 'Hosting + dominio + SSL los primeros 3 meses' },
+          { description: 'Formación 1h para que la gestiones tú' },
+          { description: 'Lanzamiento en 7 días (o menos)' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Hablar por WhatsApp',
+          href: whatsappLink('Hola Codestack, me interesa el paquete Hostelería Starter de 3.000€. Tengo [tipo de local] en [zona Valencia].'),
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Quedan 2 plazas',
+      },
+      {
+        title: 'Personalizado',
+        subtitle: 'Si necesitas más: app móvil, integración con tu POS, SEO agresivo o varios locales',
+        price: '5.000+',
+        period: 'a medida según alcance',
+        items: [
+          { description: 'Todo lo del Starter, más:' },
+          { description: 'App móvil propia (pedidos + fidelización)' },
+          { description: 'Integración con tu sistema de inventario/POS' },
+          { description: 'SEO local agresivo (Google Ads + content)' },
+          { description: 'Sesión foto profesional completa del local' },
+          { description: 'Soporte hasta 90 días incluido' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Hablamos por WhatsApp',
+          href: whatsappLink('Hola Codestack, necesito algo más grande que el Starter — tengo [explicar caso].'),
+        },
+      },
+    ]}
+  />
+
+  <!-- Garantías -->
+  <Features
+    id="garantias"
+    tagline="Tres garantías por escrito"
+    title="Si no cumplo lo prometido, no me pagas más"
+    subtitle="Sin letra pequeña, sin 'según términos'. La responsabilidad es mía hasta que funcione."
+    items={[
+      {
+        title: 'Garantía de Resultado',
+        description:
+          'Si en los primeros 90 días NO tienes al menos 10 reservas online directas, sigo trabajando sin coste adicional hasta lograrlo.',
+        icon: 'tabler:target-arrow',
+      },
+      {
+        title: 'Garantía de Rendimiento',
+        description:
+          'Tu web carga en menos de 3 segundos en móvil (Core Web Vitals verificable público). Si no, la rehago gratis hasta cumplir.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Garantía de Continuidad',
+        description:
+          'Si decides salir del mantenimiento en cualquier momento, te entrego TODO: código, accesos, backups. Sin penalización, sin retención. Tu web es tuya.',
+        icon: 'tabler:lock-open',
+      },
+    ]}
+  />
 
   <!-- Cómo trabajamos -->
   <Steps
