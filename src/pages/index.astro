@@ -32,13 +32,14 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      El <span class="text-accent dark:text-white">stack completo</span> de tu negocio: web, app y automatización
+      Tu cafetería <span class="text-accent dark:text-white">en internet</span>, sin Glovo, en 7 días.
     </Fragment>
 
     <Fragment slot="subtitle">
-      Desarrollo a medida hecho por un developer real, no una plantilla.
-      Webs rápidas, apps móviles nativas y procesos automatizados para
-      negocios que quieren más clientes con menos esfuerzo.
+      Web propia con reservas y pedidos directos. Sin pagar 25%
+      a Glovo, JustEat o TheFork. Hecho a mano por un developer
+      profesional que ya lo construyó para Cafés Maeso (20 años
+      en Valencia).
     </Fragment>
   </Hero>
 
@@ -52,7 +53,7 @@ const metadata = {
       {
         title: 'Webs a medida',
         description:
-          'Webs corporativas, landing pages y tiendas online con Astro o Next.js. Rápidas, SEO-ready y diseñadas para convertir visitas en clientes.',
+          'Webs corporativas, landing pages y tiendas online. Rápidas, optimizadas para Google y diseñadas para convertir visitas en clientes que entran por la puerta.',
         icon: 'tabler:world-www',
       },
       {
@@ -83,16 +84,20 @@ const metadata = {
     title="Cafés Maeso: tienda online de café de especialidad"
     items={[
       {
-        title: 'Stack técnico',
-        description: 'Next.js 16 + Supabase + Stripe + Resend. Catálogo de 90 SKUs, suscripciones recurrentes, panel admin.',
+        title: '✅ De 0 a 90 productos online en 4 semanas',
+        description: 'Tienda completa lanzada en cafesmaeso.es con catálogo de cafés por origen, marca propia y variantes de formato. Pedidos B2C activos desde el día 1.',
       },
       {
-        title: 'Reto',
-        description: 'Tueste familiar con 20 años de historia B2B que necesitaba salto al online sin perder identidad artesanal.',
+        title: '✅ Sin canibalizar el canal B2B de toda la vida',
+        description: 'Mantuvieron sus 40+ bares clientes mientras abrían la venta al consumidor final. Misma marca, dos canales bien separados.',
       },
       {
-        title: 'Resultado',
-        description: 'Tienda en producción en cafesmaeso.es con catálogo completo, checkout funcionando y narrativa de marca consistente.',
+        title: '✅ Web rápida (Core Web Vitals 95+), gestionable por la familia',
+        description: 'Panel admin propio que gestionan ellos mismos: pedidos, productos, ofertas. Sin llamarme para cambios diarios.',
+      },
+      {
+        title: 'Stack utilizado',
+        description: 'Tienda construida con tecnologías modernas (Next.js + Supabase + Stripe + Resend). Lo importante: funciona, vende y no se cae.',
       },
     ]}
     image={{
@@ -109,37 +114,6 @@ const metadata = {
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Caso destacado 2: WarrantyVault -->
-  <Content
-    tagline="Caso de éxito"
-    title="WarrantyVault: app móvil publicada en Play Store"
-    items={[
-      {
-        title: 'Stack técnico',
-        description: 'Kotlin + Jetpack Compose + Clean Architecture multi-módulo. Room, DataStore, WorkManager, Google Play Billing v6.',
-      },
-      {
-        title: 'Reto',
-        description: 'Gestor de garantías 100% local que no envía datos a servidores. Privacidad como diferenciador en categoría productividad.',
-      },
-      {
-        title: 'Resultado',
-        description: 'App publicada con suscripción premium, política de privacidad real y arquitectura escalable para añadir features.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?fit=crop&w=900&h=600',
-      alt: 'App móvil en uso',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">WarrantyVault</h3>
-      App propia desarrollada de principio a fin: idea, diseño, código, build firmado,
-      tienda Google Play, política de privacidad, monetización. El proceso completo de
-      llevar una app a producción, replicable para cualquier cliente.
     </Fragment>
   </Content>
 

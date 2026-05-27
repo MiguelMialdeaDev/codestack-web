@@ -50,11 +50,10 @@ export const footerData = {
       ],
     },
     {
-      title: 'Sectores',
+      title: 'Otros proyectos',
       links: [
-        { text: 'Hostelería', href: getPermalink('/casos') },
-        { text: 'Comercio local', href: getPermalink('/casos') },
-        { text: 'Servicios profesionales', href: getPermalink('/casos') },
+        { text: 'WarrantyVault (app móvil)', href: getPermalink('/casos/warrantyvault') },
+        { text: 'Compose Forms (OSS)', href: getPermalink('/casos/compose-forms') },
       ],
     },
   ],
@@ -114,11 +113,10 @@ export const footerDataEn = {
       ],
     },
     {
-      title: 'Industries',
+      title: 'Other projects',
       links: [
-        { text: 'Hospitality', href: getPermalink('/en/cases') },
-        { text: 'Local retail', href: getPermalink('/en/cases') },
-        { text: 'Professional services', href: getPermalink('/en/cases') },
+        { text: 'WarrantyVault (mobile app)', href: getPermalink('/en/cases/warrantyvault') },
+        { text: 'Compose Forms (OSS)', href: getPermalink('/en/cases/compose-forms') },
       ],
     },
   ],

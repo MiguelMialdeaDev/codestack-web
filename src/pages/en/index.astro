@@ -32,13 +32,13 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      The <span class="text-accent dark:text-white">full stack</span> of your business: web, app and automation
+      Your café <span class="text-accent dark:text-white">online</span>, without Glovo, in 7 days.
     </Fragment>
 
     <Fragment slot="subtitle">
-      Custom development built by a real developer, not a template.
-      Fast websites, native mobile apps and automated workflows for
-      businesses that want more clients with less effort.
+      Your own website with direct reservations and orders. No 25%
+      commissions to Glovo, JustEat or TheFork. Hand-built by a real
+      developer who already did it for Cafés Maeso (20 years in Valencia).
     </Fragment>
   </Hero>
 
@@ -52,7 +52,7 @@ const metadata = {
       {
         title: 'Custom websites',
         description:
-          'Corporate websites, landing pages and online stores with Astro or Next.js. Fast, SEO-ready and designed to turn visits into clients.',
+          'Corporate websites, landing pages and online stores. Fast, Google-optimized, and designed to turn visits into clients walking through your door.',
         icon: 'tabler:world-www',
       },
       {
@@ -83,16 +83,20 @@ const metadata = {
     title="Cafés Maeso: specialty coffee online store"
     items={[
       {
-        title: 'Tech stack',
-        description: 'Next.js 16 + Supabase + Stripe + Resend. 90-SKU catalogue, recurring subscriptions, admin panel.',
+        title: '✅ From 0 to 90 products online in 4 weeks',
+        description: 'Complete store launched at cafesmaeso.es with coffees by origin, own brand and format variants. B2C orders active from day 1.',
       },
       {
-        title: 'Challenge',
-        description: 'Family-owned coffee roaster with 20 years of B2B history needing to enter the consumer market without losing its artisan identity.',
+        title: '✅ Without cannibalizing their 20-year B2B channel',
+        description: 'Kept their 40+ bar clients while opening direct-to-consumer sales. Same brand, two well-separated channels.',
       },
       {
-        title: 'Result',
-        description: 'Live store at cafesmaeso.es with complete catalogue, working checkout and consistent brand storytelling.',
+        title: '✅ Fast website (Core Web Vitals 95+), managed by the family',
+        description: 'Custom admin panel they manage themselves: orders, products, offers. No daily calls needed for changes.',
+      },
+      {
+        title: 'Tech stack used',
+        description: 'Built with modern technologies (Next.js + Supabase + Stripe + Resend). What matters: it works, it sells, it does not break.',
       },
     ]}
     image={{
@@ -109,37 +113,6 @@ const metadata = {
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Featured case 2: WarrantyVault -->
-  <Content
-    tagline="Success case"
-    title="WarrantyVault: mobile app published on Play Store"
-    items={[
-      {
-        title: 'Tech stack',
-        description: 'Kotlin + Jetpack Compose + Clean Architecture multi-module. Room, DataStore, WorkManager, Google Play Billing v6.',
-      },
-      {
-        title: 'Challenge',
-        description: '100% local warranty manager that does not send data to servers. Privacy as a true differentiator in the productivity category.',
-      },
-      {
-        title: 'Result',
-        description: 'Published app with premium subscription, real privacy policy and scalable architecture ready to add features.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?fit=crop&w=900&h=600',
-      alt: 'Mobile app in use',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">WarrantyVault</h3>
-      Own app built end-to-end: idea, design, code, signed build, Google Play listing,
-      privacy policy, monetization. The complete process of taking an app to production,
-      repeatable for any client.
     </Fragment>
   </Content>
 
