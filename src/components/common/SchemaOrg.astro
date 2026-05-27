@@ -1,0 +1,89 @@
+---
+/**
+ * JSON-LD schema.org markup para Codestack.
+ *
+ * Incluye:
+ * - Organization (datos generales de la marca)
+ * - LocalBusiness (presencia local en Valencia para SEO local)
+ * - Person (Miguel como founder/owner)
+ *
+ * Se renderiza en TODAS las páginas vía Layout.astro.
+ * Google lo usa para enriquecer resultados de búsqueda.
+ */
+
+import { SITE } from 'astrowind:config';
+
+const siteUrl = SITE.site || 'https://miguelmialdeadev.github.io';
+const baseUrl = `${siteUrl}${SITE.base || ''}`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${baseUrl}/#organization`,
+      name: 'Codestack',
+      url: baseUrl,
+      logo: `${baseUrl}/favicon.svg`,
+      description:
+        'Desarrollo web a medida para cafeterías y restaurantes independientes en Valencia. Sin Glovo, sin comisiones, sin contratos eternos.',
+      founder: {
+        '@type': 'Person',
+        '@id': `${baseUrl}/#miguel`,
+        name: 'Miguel Mialdea Monzó',
+        jobTitle: 'Developer profesional',
+        email: 'miguelmialdeamonzo@gmail.com',
+        sameAs: ['https://github.com/MiguelMialdeaDev'],
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'miguelmialdeamonzo@gmail.com',
+        contactType: 'customer service',
+        areaServed: 'ES',
+        availableLanguage: ['Spanish', 'English'],
+      },
+    },
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${baseUrl}/#localbusiness`,
+      name: 'Codestack — Webs para hostelería',
+      description:
+        'Servicio de desarrollo web para cafeterías y restaurantes independientes en Valencia. Construcción de webs, integración de reservas y pedidos directos sin comisiones a Glovo/JustEat.',
+      url: baseUrl,
+      email: 'miguelmialdeamonzo@gmail.com',
+      priceRange: '€€',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Valencia',
+        addressRegion: 'Comunidad Valenciana',
+        addressCountry: 'ES',
+      },
+      areaServed: [
+        {
+          '@type': 'City',
+          name: 'Valencia',
+        },
+        {
+          '@type': 'Country',
+          name: 'España',
+        },
+      ],
+      serviceType: [
+        'Desarrollo web',
+        'Tienda online',
+        'Sistema de reservas',
+        'SEO local',
+        'Mantenimiento web',
+      ],
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '20:00',
+      },
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
