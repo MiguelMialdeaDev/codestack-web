@@ -1,228 +1,149 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
 const metadata = {
-  title: 'About us',
+  title: 'Sobre Codestack — Miguel Mialdea',
+  description:
+    'Soy Miguel, developer profesional con +5 años en consultoras tech. Vivo en Valencia. Construí cafesmaeso.es. Codestack es mi marca para ayudar a cafeterías y restaurantes a tener presencia digital sin depender de plataformas.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <!-- Hero -->
+  <HeroText
+    tagline="Sobre Codestack"
+    title="Soy Miguel. Construyo webs para que tu cafetería no dependa de Glovo."
+    subtitle="Esto es Codestack: una persona, no una agencia. Hablas conmigo, decides conmigo, y conmigo se construye lo que llevas a producción."
+  />
 
-  <Hero
-    tagline="About us"
+  <!-- Quién soy -->
+  <Content
+    isReversed
+    tagline="Quién soy"
+    title="Developer profesional desde hace más de 5 años"
+    items={[
+      {
+        title: 'Día a día',
+        description:
+          'Trabajo a jornada completa como Android Developer en una consultora tecnológica internacional. He pasado por proyectos de banca, retail y movilidad para clientes en producción.',
+      },
+      {
+        title: 'Stack',
+        description:
+          'Kotlin, Jetpack Compose, Clean Architecture multi-módulo, Room, WorkManager, testing con JUnit/MockK/Turbine. También Next.js, Astro, Supabase y Stripe en el lado web.',
+      },
+      {
+        title: 'Por qué Codestack',
+        description:
+          'Después de muchos proyectos enterprise, vi que los negocios pequeños de mi ciudad — cafeterías, restaurantes, talleres — tenían webs penosas o ninguna, y pagaban 25 % a plataformas que se llevan su margen. Codestack existe para resolver exactamente eso.',
+      },
+    ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      src: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?fit=crop&w=900&h=600',
+      alt: 'Developer trabajando',
     }}
+  />
+
+  <!-- Por qué Valencia -->
+  <Content
+    tagline="Por qué Valencia"
+    title="Vivo aquí. Mi cliente está al lado de mi casa."
+    items={[
+      {
+        title: 'Conozco el mercado local',
+        description:
+          'He tomado café en la mayoría de cafeterías independientes de la zona. Sé qué cadena llega a qué barrio. Sé qué dueño está pensando "esto del online me supera". Tu situación no es teoría para mí.',
+      },
+      {
+        title: 'Reuniones presenciales si encajan',
+        description:
+          'Para proyectos que lo merezcan, voy a tu local. 15 minutos, un café, decisión. Mucho más eficiente que tres videollamadas y un PDF.',
+      },
+      {
+        title: 'Soporte cercano',
+        description:
+          'Cuando algo no va, no escribes a un soporte de Mumbai. Me escribes a mí. Vivo a 20 minutos en metro de la mayoría de cafés de Valencia.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1568376794508-ae52c6ab3929?fit=crop&w=900&h=600',
+      alt: 'Valencia',
+    }}
+  />
+
+  <!-- Caso anchor Maeso -->
+  <Content
+    isReversed
+    tagline="El caso que respalda todo lo demás"
+    title="Cafés Maeso: 20 años en Valencia, ahora también online"
+    items={[
+      {
+        title: '¿Por qué confían en mí?',
+        description:
+          'Porque construí su tienda online de cero (cafesmaeso.es) y hoy venden al consumidor final sin perder a los bares de toda la vida. Misma marca, dos canales, cero canibalización.',
+      },
+      {
+        title: 'Lo que les entregué',
+        description:
+          'Catálogo de 90 SKUs, suscripciones recurrentes, panel admin que gestionan ellos mismos, pagos con Stripe y envíos a toda España. Todo en 4 semanas.',
+      },
+      {
+        title: 'Lo que pueden hacer ellos solos',
+        description:
+          'Subir productos, cambiar precios, gestionar pedidos, exportar facturas. No me llaman cada semana — solo cuando hay cambios mayores. Esa es la idea.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1442550528053-c431ecb55509?fit=crop&w=900&h=600',
+      alt: 'Tueste de café Maeso',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Ver caso completo →',
+      href: '/casos/cafes-maeso',
+    }}
+  />
+
+  <!-- Cómo trabajo -->
+  <Stats
+    title="Cómo trabajo (en números honestos)"
+    subtitle="No prometo lo que no puedo cumplir. Estos son los compromisos reales."
+    stats={[
+      { title: 'Respondo tu WhatsApp en menos de', amount: '24h' },
+      { title: 'Propuesta por escrito tras la primera llamada', amount: '48h' },
+      { title: 'Días promedio hasta tu web lanzada', amount: '7' },
+      { title: 'Permanencia del plan de mantenimiento', amount: '0' },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Hablar por WhatsApp',
+        href: whatsappLink('Hola Miguel, vi tu página de Sobre y me gustaría hablar de un proyecto.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'Ver pricing',
+        href: '/#pricing',
+      },
+    ]}
   >
-    <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
-    </Fragment>
+    <Fragment slot="title">¿Encajamos?</Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      La única forma de saberlo es hablar 15 minutos sin compromiso.
+      Si encajamos, en 48 horas tienes propuesta por escrito.
     </Fragment>
-  </Hero>
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
-    isBeforeContent={true}
-    items={[
-      {
-        title: 'Educational',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
-    items={[
-      {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
-      },
-    ]}
-  />
+  </CallToAction>
 </Layout>

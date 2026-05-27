@@ -1,0 +1,96 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'Contact — Codestack',
+  description:
+    'Three ways to start the conversation: WhatsApp (fast), email (formal), or an in-person coffee at your place in Valencia.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Contact"
+    title="We talk however you prefer"
+    subtitle="Three paths to start — all go to the same person (me) and all end with a clear proposal within 48h if we fit."
+  />
+
+  <Features3
+    columns={3}
+    items={[
+      {
+        title: 'WhatsApp (fastest)',
+        subtitle: 'Recommended · Reply &lt;24h',
+        description:
+          'Send me a message with what you have in mind. Fastest path and what works best for SMB clients. No forms, no waiting.',
+        icon: 'tabler:brand-whatsapp',
+        callToAction: {
+          text: 'Open WhatsApp',
+          href: whatsappLink('Hi Codestack, I came from your contact page and would like to talk about a project.'),
+          target: '_blank',
+        },
+      },
+      {
+        title: 'Email (more formal)',
+        subtitle: 'For detailed proposals',
+        description:
+          'If you prefer everything in writing from minute one, drop me an email. I reply within 24 business hours.',
+        icon: 'tabler:mail',
+        callToAction: {
+          text: 'Send email',
+          href: 'mailto:miguelmialdeamonzo@gmail.com?subject=Codestack%20%E2%80%94%20Project%20inquiry',
+        },
+      },
+      {
+        title: 'Visit your place',
+        subtitle: 'For premium leads in Valencia',
+        description:
+          'If you have a café or restaurant in Valencia and want to talk face-to-face: I come, we have a coffee, I show you how I would do it. 15 minutes, no commitment.',
+        icon: 'tabler:map-pin',
+        callToAction: {
+          text: 'Request visit',
+          href: whatsappLink('Hi Codestack, I would like you to come to my place in Valencia to talk 15 minutes. Address: [ADDRESS].'),
+          target: '_blank',
+        },
+      },
+    ]}
+  />
+
+  <ContactUs
+    id="form"
+    tagline="Or if you prefer a form"
+    title="Tell me your situation"
+    subtitle="Also goes straight to my email. No extra steps. No newsletter after."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Your name',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Your email',
+      },
+      {
+        type: 'text',
+        name: 'business',
+        label: 'Your business name (optional)',
+      },
+    ]}
+    textarea={{
+      label: 'Tell me what you have in mind, current situation, or what you would like to achieve',
+      rows: 5,
+    }}
+    disclaimer={{
+      label:
+        'By submitting, you accept I will receive your message and reply. Your data is only used for this conversation — more info in the privacy policy.',
+    }}
+    description="Reply within 24 business hours. If we fit, written proposal in 48h."
+  />
+</Layout>

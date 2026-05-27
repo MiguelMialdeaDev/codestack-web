@@ -1,79 +1,99 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+
+import { whatsappLink } from '~/navigation';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contacto — Codestack',
+  description:
+    'Tres formas de empezar la conversación: WhatsApp (rápido), email (formal), o un café presencial en tu local en Valencia.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <!-- Hero -->
+  <HeroText
+    tagline="Contacto"
+    title="Hablamos como tú prefieras"
+    subtitle="Tres caminos para empezar — todos van a la misma persona (yo) y todos terminan con una propuesta clara en 48h si encajamos."
+  />
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <!-- 3 opciones de contacto -->
+  <Features3
+    columns={3}
+    items={[
+      {
+        title: 'WhatsApp (lo más rápido)',
+        subtitle: 'Recomendado · Respuesta &lt;24h',
+        description:
+          'Mándame mensaje con qué tienes en mente. Lo más rápido y lo que mejor funciona para cliente Pyme. Sin formularios, sin esperas.',
+        icon: 'tabler:brand-whatsapp',
+        callToAction: {
+          text: 'Abrir WhatsApp',
+          href: whatsappLink('Hola Codestack, vengo de tu página de contacto y me interesa hablar de un proyecto.'),
+          target: '_blank',
+        },
+      },
+      {
+        title: 'Email (más formal)',
+        subtitle: 'Para propuestas detalladas',
+        description:
+          'Si prefieres dejar todo por escrito desde el primer minuto, escríbeme un email. Respondo dentro de 24h laborables.',
+        icon: 'tabler:mail',
+        callToAction: {
+          text: 'Enviar email',
+          href: 'mailto:miguelmialdeamonzo@gmail.com?subject=Codestack%20%E2%80%94%20Consulta%20de%20proyecto',
+        },
+      },
+      {
+        title: 'Visita a tu local',
+        subtitle: 'Para leads premium en Valencia',
+        description:
+          'Si tienes un café o restaurante en Valencia y quieres hablar cara a cara: voy yo, tomamos un café, te enseño cómo lo haría. 15 minutos, sin compromiso.',
+        icon: 'tabler:map-pin',
+        callToAction: {
+          text: 'Solicitar visita',
+          href: whatsappLink('Hola Codestack, me gustaría que vinieses a mi local en Valencia para hablar 15 minutos. La dirección es [DIRECCIÓN].'),
+          target: '_blank',
+        },
+      },
+    ]}
+  />
 
+  <!-- Formulario backup para los que prefieren escribir directo -->
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    tagline="O si prefieres formulario"
+    title="Cuéntame tu situación"
+    subtitle="También va a mi email. Sin pasos extra. Sin newsletter posterior."
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: 'Name',
+        label: 'Tu nombre',
       },
       {
         type: 'email',
         name: 'email',
-        label: 'Email',
+        label: 'Tu email',
+      },
+      {
+        type: 'text',
+        name: 'business',
+        label: 'Nombre de tu negocio (opcional)',
       },
     ]}
     textarea={{
-      label: 'Message',
+      label: 'Cuéntame qué tienes en mente, situación actual, o qué te gustaría conseguir',
+      rows: 5,
     }}
     disclaimer={{
       label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        'Al enviar aceptas que recibiré tu mensaje y te responderé. Tus datos solo se usan para esta conversación — más info en la política de privacidad.',
     }}
-    description="Our support team typically responds within 24 business hours."
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
+    description="Respuesta en menos de 24h laborables. Si encajamos, propuesta por escrito en 48h."
   />
 </Layout>

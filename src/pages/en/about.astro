@@ -1,0 +1,143 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'About Codestack — Miguel Mialdea',
+  description:
+    "I'm Miguel, professional developer with 5+ years in tech consultancies. I live in Valencia. I built cafesmaeso.es. Codestack is my brand to help cafés and restaurants get real digital presence without depending on platforms.",
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="About Codestack"
+    title="I'm Miguel. I build websites so your café does not depend on Glovo."
+    subtitle="This is Codestack: one person, not an agency. You talk to me, you decide with me, and we build together what goes to production."
+  />
+
+  <Content
+    isReversed
+    tagline="Who I am"
+    title="Professional developer for over 5 years"
+    items={[
+      {
+        title: 'Day-to-day',
+        description:
+          'I work full-time as an Android Developer at an international tech consultancy. I have shipped projects for banking, retail and mobility clients in production.',
+      },
+      {
+        title: 'Stack',
+        description:
+          'Kotlin, Jetpack Compose, Clean Architecture multi-module, Room, WorkManager, testing with JUnit/MockK/Turbine. Also Next.js, Astro, Supabase and Stripe on the web side.',
+      },
+      {
+        title: 'Why Codestack',
+        description:
+          'After many enterprise projects, I saw that small businesses in my city — cafés, restaurants, workshops — had terrible websites or none, and were paying 25% to platforms taking their margin. Codestack exists to solve exactly that.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?fit=crop&w=900&h=600',
+      alt: 'Developer working',
+    }}
+  />
+
+  <Content
+    tagline="Why Valencia"
+    title="I live here. My client is next door."
+    items={[
+      {
+        title: 'I know the local market',
+        description:
+          'I have had coffee in most independent cafés around. I know which chain reaches which neighborhood. I know which owner is thinking "all this online stuff is too much". Your situation is not theory to me.',
+      },
+      {
+        title: 'In-person meetings when it fits',
+        description:
+          'For projects that warrant it, I come to your place. 15 minutes, a coffee, decision. Much more efficient than three video calls and a PDF.',
+      },
+      {
+        title: 'Close support',
+        description:
+          "When something is wrong, you don't write to a support team in Mumbai. You write to me. I live 20 metro minutes from most Valencia cafés.",
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1568376794508-ae52c6ab3929?fit=crop&w=900&h=600',
+      alt: 'Valencia',
+    }}
+  />
+
+  <Content
+    isReversed
+    tagline="The case that backs everything else"
+    title="Cafés Maeso: 20 years in Valencia, now also online"
+    items={[
+      {
+        title: 'Why do they trust me?',
+        description:
+          'Because I built their online store from scratch (cafesmaeso.es) and today they sell directly to the end consumer without losing their lifelong bar clients. Same brand, two channels, zero cannibalization.',
+      },
+      {
+        title: 'What I delivered',
+        description:
+          'Catalogue with 90 SKUs, recurring subscriptions, admin panel they manage themselves, Stripe payments and shipping across Spain. All in 4 weeks.',
+      },
+      {
+        title: 'What they can do on their own',
+        description:
+          "Add products, change prices, manage orders, export invoices. They don't call me every week — only for major changes. That's the whole point.",
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1442550528053-c431ecb55509?fit=crop&w=900&h=600',
+      alt: 'Cafés Maeso roasting',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'See full case →',
+      href: '/en/cases/cafes-maeso',
+    }}
+  />
+
+  <Stats
+    title="How I work (honest numbers)"
+    subtitle="I do not promise what I cannot deliver. These are real commitments."
+    stats={[
+      { title: 'I reply to your WhatsApp within', amount: '24h' },
+      { title: 'Written proposal after first call', amount: '48h' },
+      { title: 'Days average until your website launches', amount: '7' },
+      { title: 'Lock-in period on maintenance plan', amount: '0' },
+    ]}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk on WhatsApp',
+        href: whatsappLink('Hi Miguel, I saw your About page and would like to talk about a project.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        text: 'See pricing',
+        href: '/en/#pricing',
+      },
+    ]}
+  >
+    <Fragment slot="title">Do we fit?</Fragment>
+
+    <Fragment slot="subtitle">
+      The only way to know is to talk for 15 minutes, no commitment.
+      If we fit, within 48 hours you get a written proposal.
+    </Fragment>
+  </CallToAction>
+</Layout>
