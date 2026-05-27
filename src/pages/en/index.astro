@@ -42,36 +42,64 @@ const metadata = {
     </Fragment>
   </Hero>
 
+  <!-- Does this sound familiar? — 3 problem layers -->
+  <Features
+    id="problems"
+    tagline="Does this sound familiar?"
+    title="What you live every week without decent digital presence"
+    subtitle="If you identify with even one of these, there is room to change things."
+    items={[
+      {
+        title: 'You do not appear when they search',
+        description:
+          'Someone searches "café near me" on Google and the place across the street shows up. Your potential client walks in there instead of into your café. Every week, dozens of times.',
+        icon: 'tabler:map-search',
+      },
+      {
+        title: 'You pay 25% of each order to platforms',
+        description:
+          'Glovo, JustEat, TheFork take between 25% and 30%. If you do €1,500/month in orders, that is €375-450 going out. Per year: €4,500-5,400 you could keep.',
+        icon: 'tabler:cash-off',
+      },
+      {
+        title: 'Your nephew has promised you the website for 6 months',
+        description:
+          'Started with good intentions, got busy, told you "next month", and "next month" turned into 8 months. Meanwhile, you stay invisible.',
+        icon: 'tabler:hourglass-empty',
+      },
+    ]}
+  />
+
   <!-- Services -->
   <Features
     id="services"
-    tagline="Services"
-    title="Everything your digital business needs, in one place"
-    subtitle="No outsourcing. I build, I deliver, I maintain. Result: direct communication, no middlemen, no surprises in quality."
+    tagline="What I do for you"
+    title="Your digital business, built by one person who knows what they're doing"
+    subtitle="I build it, I deliver it, I maintain it. You always talk directly to me, not a sales rep. When something needs to change, it changes."
     items={[
       {
-        title: 'Custom websites',
+        title: 'Your café on Google and on the phone',
         description:
-          'Corporate websites, landing pages and online stores. Fast, Google-optimized, and designed to turn visits into clients walking through your door.',
-        icon: 'tabler:world-www',
-      },
-      {
-        title: 'Mobile apps',
-        description:
-          'Native mobile apps with clean architecture and modern patterns. 5+ years building for banking, retail and mobility sectors. Store publishing included.',
+          'Website that loads fast, looks great on mobile, and gets found when people search your area. More menu views, more reservations, more clients walking in.',
         icon: 'tabler:device-mobile',
       },
       {
-        title: 'Automation',
+        title: 'Direct reservations and orders, no Glovo',
         description:
-          'Bots, scrapers, integrations and automated workflows that save you hours every week. Real cases: Telegram alerts, inventory management, notifications.',
-        icon: 'tabler:robot',
+          'Your client books a table in 30 seconds. Delivery orders go straight to your WhatsApp. Zero 25% commission. Zero fighting with TheFork when something breaks.',
+        icon: 'tabler:calendar-event',
       },
       {
-        title: 'SEO and maintenance',
+        title: 'Digital menu you update yourself',
         description:
-          'Organic positioning, performance optimization and technical maintenance so your website grows without breaking. No long-term contracts.',
-        icon: 'tabler:trending-up',
+          'Change the sandwich price in 10 seconds without reprinting anything. Your client sees it on their phone via QR at each table. Goodbye to old laminated menus.',
+        icon: 'tabler:menu-2',
+      },
+      {
+        title: 'Google Maps optimized so they find you',
+        description:
+          'Professional photos, managed reviews, updated hours. You appear before the chain across the street when someone searches "café near me".',
+        icon: 'tabler:map-pin',
       },
     ]}
   />
@@ -121,23 +149,23 @@ const metadata = {
     title="How we work together"
     items={[
       {
-        title: '1. Free intro call',
-        description: 'I listen, understand the real problem and tell you if we fit. 30 minutes, no commitment.',
-        icon: 'tabler:phone',
+        title: '1. 15-min WhatsApp, no commitment',
+        description: 'You tell me your situation and what frustrates you. I tell you straight if we fit or not. No pitch, no pressure.',
+        icon: 'tabler:brand-whatsapp',
       },
       {
-        title: '2. Clear written proposal',
-        description: 'Within 48h you get a proposal with scope, timeline and fixed price. No "it depends".',
+        title: '2. Clear proposal within 48h',
+        description: 'Scope + timeline + fixed price in writing. No "it depends", no surprises mid-project.',
         icon: 'tabler:file-text',
       },
       {
-        title: '3. Weekly sprints',
-        description: 'Every week you see real progress, not promises. Fast iterations with your feedback.',
-        icon: 'tabler:code',
+        title: '3. Every Monday you see real progress',
+        description: 'We build in weekly sprints. You watch it grow each week, not wait 3 months for a mystery.',
+        icon: 'tabler:calendar-check',
       },
       {
-        title: '4. Launch and follow-up',
-        description: 'Production deployment, training and 30 days of guarantee. Afterwards you decide if we continue.',
+        title: '4. Launch + 30-day guarantee',
+        description: 'Production deployment, training for your team, support the first month. Afterwards you decide if we continue with maintenance.',
         icon: 'tabler:rocket',
       },
     ]}
@@ -147,15 +175,15 @@ const metadata = {
     }}
   />
 
-  <!-- Stats -->
+  <!-- Stats — client-oriented -->
   <Stats
-    title="Why Codestack"
-    subtitle="Numbers backing the work, not marketing promises."
+    title="What this saves you"
+    subtitle="Honest numbers. Yours may be larger or smaller depending on your volume, but the direction is clear."
     stats={[
-      { title: 'Years of experience', amount: '+5' },
-      { title: 'Live projects', amount: '3' },
-      { title: 'Stacks mastered', amount: '5+' },
-      { title: 'Average reply time', amount: '<2h' },
+      { title: '€/year saved in Glovo/JustEat commissions', amount: '4,500+' },
+      { title: 'Days average until your website is live', amount: '7' },
+      { title: 'Response time to your WhatsApp', amount: '<24h' },
+      { title: 'Lock-in period on maintenance plan', amount: '0' },
     ]}
   />
 
@@ -211,12 +239,14 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Have an idea or a problem in mind?
+      Be the owner they call directly, not the platforms
     </Fragment>
 
     <Fragment slot="subtitle">
-      Tell me on WhatsApp and we set up a 30-minute call.
-      If we fit, within 48h you get a written proposal. No commitment.
+      In 7 days your café can have its own website, take reservations
+      without going through TheFork, and orders without giving up 25%
+      to Glovo. Send me a WhatsApp and we talk in 15 minutes,
+      no commitment.
     </Fragment>
   </CallToAction>
 </Layout>
