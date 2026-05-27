@@ -1,0 +1,94 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { whatsappLink } from '~/navigation';
+
+const metadata = {
+  title: 'Mobile apps — Codestack',
+  description:
+    'Native Android apps with Kotlin + Jetpack Compose for founders and companies that need quality MVPs without hiring in-house.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Section for founders / tech teams"
+    title="Mobile apps for your product"
+    subtitle="If you arrived from a hospitality client, go back to home. This section is for founders or companies that need a professional native mobile app."
+  />
+
+  <Content
+    tagline="Who it fits"
+    title="Your native Android MVP in 6-12 weeks"
+    items={[
+      {
+        title: 'Founders with validated ideas',
+        description: 'You have a tested idea and need a native, quality app to scale — without hiring in-house or paying an agency 30k €.',
+      },
+      {
+        title: 'Small/mid-sized companies',
+        description: 'You need an app for your field team, salespeople or warehouse. Backend sync, role-based permissions, private distribution.',
+      },
+      {
+        title: 'Projects requiring real technical seniority',
+        description: '+5 years professional Android verifiable (Globant). Own OSS library on Maven Central. Own app on Play Store. Demonstrated seniority, not just claims.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?fit=crop&w=900&h=600',
+      alt: 'Mobile app',
+    }}
+  />
+
+  <Content
+    isReversed
+    tagline="Case study"
+    title="WarrantyVault: own app published on Play Store"
+    items={[
+      {
+        title: '✅ End-to-end, from idea to Play Store',
+        description: 'Design + code + signed build + publication + monetization with Google Play Billing. The complete process replicable for your product.',
+      },
+      {
+        title: '✅ Real scalable architecture',
+        description: 'Multi-module with Clean Architecture. Testable, maintainable, ready to add features without rewriting.',
+      },
+      {
+        title: 'See full case',
+        description: 'Technical details, design decisions and stack on the complete case page.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?fit=crop&w=900&h=600',
+      alt: 'WarrantyVault app',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'See full case →',
+      href: '/en/cases/warrantyvault',
+    }}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk on WhatsApp',
+        href: whatsappLink('Hi Codestack, I came from the /apps section and have a mobile app idea / technical project to discuss.'),
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">Have a mobile app or technical project idea?</Fragment>
+
+    <Fragment slot="subtitle">
+      Tell me on WhatsApp and we set up 30 min. If it fits, within 48h you get
+      a written proposal.
+    </Fragment>
+  </CallToAction>
+</Layout>

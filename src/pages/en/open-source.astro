@@ -1,0 +1,92 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Open source — Codestack',
+  description:
+    'Open source libraries published by Codestack. Compose Forms (Maven Central) for reactive forms in Jetpack Compose.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="For developers"
+    title="Open source"
+    subtitle="Libraries and tools we publish openly. This section does NOT sell services — it lives here as backing for the technical quality we apply to commercial projects."
+  />
+
+  <Content
+    tagline="Library"
+    title="Compose Forms — type-safe forms in Jetpack Compose"
+    items={[
+      {
+        title: 'Why it exists',
+        description:
+          'The Android ecosystem lacked a solution combining KSP type-safe + multi-step + async validators + Compose-first. Form Conductor had 3 years without release. I built it.',
+      },
+      {
+        title: 'Tech stack',
+        description:
+          'Kotlin 2.1 + KSP2 + Compose. 7 modules published on Maven Central. Apache 2.0. Own convention plugins. CI matrix Compose 1.7/1.8/1.9.',
+      },
+      {
+        title: 'Status',
+        description:
+          'Actively maintained. Open issues are addressed. Contributions welcome.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?fit=crop&w=900&h=600',
+      alt: 'Kotlin code',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'See on GitHub →',
+      href: 'https://github.com/MiguelMialdeaDev',
+    }}
+  />
+
+  <Content
+    isReversed
+    tagline="Technical case"
+    title="Details, architecture, decisions"
+    items={[
+      {
+        title: 'For developers evaluating technical libraries',
+        description: 'Complete case with the 7-module architecture, test case coverage, API decisions and publishing pipeline to Maven Central.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?fit=crop&w=900&h=600',
+      alt: 'Technical architecture',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'See full technical case →',
+      href: '/en/cases/compose-forms',
+    }}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact on GitHub',
+        href: 'https://github.com/MiguelMialdeaDev',
+        target: '_blank',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  >
+    <Fragment slot="title">Are you a developer who wants to collaborate or integrate?</Fragment>
+
+    <Fragment slot="subtitle">
+      Issues, PRs and technical discussions on GitHub. For commercial contracts:
+      go back to home.
+    </Fragment>
+  </CallToAction>
+</Layout>

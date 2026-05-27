@@ -1,0 +1,96 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Open source — Codestack',
+  description:
+    'Librerías open source publicadas por Codestack. Compose Forms (Maven Central) para formularios reactivos en Jetpack Compose.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <HeroText
+    tagline="Para developers"
+    title="Open source"
+    subtitle="Librerías y herramientas que publicamos en abierto. Esta sección NO vende servicios — vive aquí como respaldo de la calidad técnica que aplicamos a los proyectos comerciales."
+  />
+
+  <!-- Compose Forms -->
+  <Content
+    tagline="Librería"
+    title="Compose Forms — formularios type-safe en Jetpack Compose"
+    items={[
+      {
+        title: 'Por qué existe',
+        description:
+          'El ecosistema Android no tenía una solución que combinase KSP type-safe + multi-step + async validators + Compose-first. Form Conductor llevaba 3 años sin release. Lo construí.',
+      },
+      {
+        title: 'Stack técnico',
+        description:
+          'Kotlin 2.1 + KSP2 + Compose. 7 módulos publicados en Maven Central. Apache 2.0. Convention plugins propios. CI matrix Compose 1.7/1.8/1.9.',
+      },
+      {
+        title: 'Estado',
+        description:
+          'Activamente mantenida. Issues abiertas se atienden. Contribuciones bienvenidas.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?fit=crop&w=900&h=600',
+      alt: 'Código Kotlin',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver en GitHub →',
+      href: 'https://github.com/MiguelMialdeaDev',
+    }}
+  />
+
+  <!-- Caso técnico completo -->
+  <Content
+    isReversed
+    tagline="Caso técnico"
+    title="Detalles, arquitectura, decisiones"
+    items={[
+      {
+        title: 'Para developers que evalúan librerías técnicas',
+        description: 'Caso completo con arquitectura de los 7 módulos, casos de uso de tests, decisiones de API y publishing pipeline a Maven Central.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?fit=crop&w=900&h=600',
+      alt: 'Arquitectura técnica',
+    }}
+    callToAction={{
+      target: '_self',
+      text: 'Ver caso técnico completo →',
+      href: '/casos/compose-forms',
+    }}
+  />
+
+  <!-- CTA contacto técnico -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contacto en GitHub',
+        href: 'https://github.com/MiguelMialdeaDev',
+        target: '_blank',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Eres developer y quieres colaborar o integrar?</Fragment>
+
+    <Fragment slot="subtitle">
+      Issues, PRs y discusiones técnicas en GitHub. Para contratos comerciales:
+      vuelve a la home.
+    </Fragment>
+  </CallToAction>
+</Layout>
