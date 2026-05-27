@@ -1,63 +1,60 @@
 ---
 import '@fontsource-variable/inter';
+import '@fontsource-variable/playfair-display';
 
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
+// Paleta Codestack — cálida hostelería
+// Inspiración: café tostado + crema + acento naranja-cobre
+// Cambio de morados AstroWind original → vibra boutique / artesanal
 ---
 
 <style is:inline>
   :root {
+    /* Sans serif para cuerpo */
     --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    /* Serif elegante para titulares — feeling boutique artesanal */
+    --aw-font-serif: 'Playfair Display Variable';
+    --aw-font-heading: 'Playfair Display Variable';
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Café tostado profundo (#3D2817) — botones, acentos primarios */
+    --aw-color-primary: rgb(61 40 23);
+    --aw-color-secondary: rgb(45 30 17);
+    /* Naranja apagado cobre (#D97844) — highlights, ribbons, hover */
+    --aw-color-accent: rgb(217 120 68);
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    /* Textos */
+    --aw-color-text-heading: rgb(45 30 17);
+    --aw-color-text-default: rgb(45 30 17);
+    --aw-color-text-muted: rgb(45 30 17 / 66%);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    /* Fondo crema (#FAF6F1) — vibra café shop */
+    --aw-color-bg-page: rgb(250 246 241);
+
+    --aw-color-bg-page-dark: rgb(28 21 15);
 
     ::selection {
-      background-color: lavender;
+      background-color: rgb(217 120 68 / 35%);
+      color: rgb(45 30 17);
     }
   }
 
   .dark {
     --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-serif: 'Playfair Display Variable';
+    --aw-font-heading: 'Playfair Display Variable';
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* En oscuro: invertimos a tonos cálidos sobre fondo café muy oscuro */
+    --aw-color-primary: rgb(217 120 68);
+    --aw-color-secondary: rgb(193 100 55);
+    --aw-color-accent: rgb(245 200 165);
 
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(3 6 32);
+    --aw-color-text-heading: rgb(250 246 241);
+    --aw-color-text-default: rgb(235 225 210);
+    --aw-color-text-muted: rgb(235 225 210 / 66%);
+    --aw-color-bg-page: rgb(28 21 15);
 
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: rgb(217 120 68 / 50%);
+      color: rgb(250 246 241);
     }
   }
 </style>
